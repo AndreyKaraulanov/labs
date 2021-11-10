@@ -25,11 +25,9 @@ int main()
         num /=10;
         sum += array[i];
     }
-    cout << "Число наоборот: ";
-    for (i = 0; i < array_size; i++)
-        cout << array[i];
+    cout << "Число наоборот: "<< reverse;
     cout << endl;
     cout << "Сумма: " << sum << endl;
-    cout << "Всего цифр: " << i << endl;
+    cout << "Всего чисел: " << i << endl;
     return 0;
 }
