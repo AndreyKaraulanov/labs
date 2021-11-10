@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
     int num;
+    int reverse = 0;
     int sum = 0;
     int array_size = 0;
     int hash;
@@ -20,6 +21,7 @@ int main()
     int i = 0;
     for (i = 0; i < array_size; i++){
         array[i] = (num % 10);
+        reverse = reverse * 10 + array[i];
         num /=10;
         sum += array[i];
     }
