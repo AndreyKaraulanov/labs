@@ -9,32 +9,32 @@ using namespace std;
 int main()
 {
     srand(time(NULL));
-    int bot_num = rand() % 100 + 1;
+    int num1 = rand() % 100 + 1;
 
-    int user_num, attempts=0;
+    int num2, col=0;
 
-    printf("Угадай число!\n");
+    printf("Угадайте число!\n");
 
     do {
-            attempts++;
-            scanf("%i", &user_num);
-        if (user_num > bot_num) {
-            printf("Этот число больше моего.\n");
-            printf("Попробуй еще раз.\n");
+            col++;
+            scanf("%i", &num2);
+        if (num2 > num1) {
+            printf("Это число больше моего.\n");
+            printf("Попробуйте еще раз!\n");
         }
-        else if (user_num < bot_num) {
-            printf("Этот число меньше моего.\n");
-            printf("Попробуй еще раз.\n");
+        else if (num2 < num1) {
+            printf("Это число меньше моего.\n");
+            printf("Попробуйте еще раз!\n");
         }
         else {
-            printf("Поздравляю, ты угадал!");
-            printf("Это было %i \n\n", bot_num);
+            printf("Вы угадали!");
+            printf("Это было %i \n\n", num1);
         }
 
-    } while(user_num!=bot_num);
+    } while(num2!=num1);
 
 
-       printf("Количество попыток:%i\n\n\n", attempts);
+       printf("Количество попыток:%i\n\n\n", col);
 
 
 return 0;

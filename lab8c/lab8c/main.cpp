@@ -1,34 +1,33 @@
-#include <iostream>
-#include <string>
-
-using std::cout;
-using std::cin;
-using std::endl;
+#include<iostream>
+#include<vector>
+#include <iomanip>
 using namespace std;
- 
-int main(int argc, char* argv[])
+
+int main()
 {
-    int N;
-    cout << "Введите количество элементов массива" << endl;
-    cin>>N;
-    int array1[N]; // объявляем целочисленный массив
-    cout << "Введите элементы массива" << endl;
+    int num;
     int sum = 0;
-    for ( int counter = 0; counter < N; counter++ ) // цикл для считывания чисел
-        cin >> array1[counter];  // считываем вводимые с клавиатуры числа
-    cout << "array1 = {";
-    for ( int counter = 0; counter < N; counter++ ) // цикл для вывода элементов массива
-        cout << array1[counter] << " ";  // выводим элементы массива на стандартное устройство вывода
-    for ( int counter = 0; counter < N; counter++ ) // цикл для суммирования чисел массива
-        sum += array1[counter]; // суммируем элементы массива
-    cout << "}\nсумма = " << sum << endl;
-    cout << "Обратное число:";
-    while (sum>0) {
-        int digit = sum % 10;
-        sum = sum/10;
-        cout << digit;
+    int array_size = 0;
+    int hash;
+    cout << "Введите свое число: ";
+    cin >> num;
+    hash = num;
+    do {
+        hash /=10;
+        array_size++;
+    } while (hash > 0);
+    int *array = new int[array_size];
+    int i = 0;
+    for (i = 0; i < array_size; i++){
+        array[i] = (num % 10);
+        num /=10;
+        sum += array[i];
     }
-    putchar('\n');
+    cout << "Число наоборот: ";
+    for (i = 0; i < array_size; i++)
+        cout << array[i];
+    cout << endl;
+    cout << "Сумма: " << sum << endl;
+    cout << "Всего цифр: " << i << endl;
     return 0;
 }
-
