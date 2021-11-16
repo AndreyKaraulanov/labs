@@ -1,93 +1,64 @@
-#include<iostream>
-
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+#include <vector>
+#include <ctime>
+#include <iomanip>
 using namespace std;
 
 int main()
 {
+    int const SIZE = 5;
+    int smoking_space[SIZE] = { 1, 2, 3, 4, 5 };
+    int no_smoking_space[SIZE] = { 6, 7, 8, 9, 10 };
 
-int i=0, j=0, seatNo;
-int seatsAllotted=0;
 
-//10 seats numbered 1 through 10
-//0->seat unavailable
-//1->seat available
+    cout << "Welcome " << endl;
+    cout << "We have two sitings areas \"smoking space\" and no \"smoking space\". You need to chose one." << endl;
 
-int available[10];
 
-for(i=1; i<=10; i++)
-{
-    available[i]=1;
-}
+    string answer;
+    string smoke("yes");
+    string no_smoke("no");
 
-int choice;
+    int book_break = 0;
 
-while(1)
-{
+    while ( book_break < SIZE*2) {
 
-    cout<<"\n\n1. BOOKING";
-    cout<<"\n";
+        cout << "Are you smoking?<yes/no>  ";
+        cin >> answer;
 
-    cout<<"2. CANCELLATION\n";
-    cin>>choice;
-
-    switch(choice)
-    {
-
-    //BOOKING PART
-
-    case 1:
-
-        int no;
-
-        cout<<"\n\nEnter no. of seats to be booked: ";
-        cin>>no;
-
-        if((seatsAllotted+no)>10)
-        {
-            cout<<"Insufficient no. of seats are available";
+        if (cin.fail()){
+            cin.clear();
+            //cin.ignore(10000, '\n');
+            continue;
         }
 
-        else
-        {
-
-            for(j=1; j<=no; j++)
-            {
-                for(i=1; i<=10; i++)
-                {
-                    if(available[i]==1)
-                    {
-                        seatNo=i;
-                        available[i]=0;
-                        break;
-                    }
-                }
-
-                cout<<"\nSeat nos. allotted are: ";
-                cout<<seatNo;
-
-                seatsAllotted+=1;
+        if (answer == smoke) {
+            int i;
+            for ( i = 1; i < SIZE; i++) {
+              //  cout << " Place " << smoking_space[i] << " is booked!" << endl;
             }
+            cout << " Place " << smoking_space[i] << " is booked!" << endl;
+            book_break++;
         }
-        break;
 
-    //CANCELLATION PART
-    case 2:
-
-        int cancel;
-
-        cout<<"\n\nEnter the seat nos. to be cancelled: ";
-        cin>>cancel;
-
-        available[cancel]=1;
-        seatsAllotted-=1;
-
-        break;
-
-    default:
-
-        cout<<"Wrong choice";
-
+        if (answer == no_smoke) {
+            int j;
+            for (j = 1; j < SIZE; j++) {
+              // cout << " Place " << no_smoking_space[j] << " is booked!" << endl;
+            }
+            cout << " Place " << no_smoking_space[j] << " is booked!" << endl;
+            book_break++;
+        }
+   
     }
+
+
+
+
+
+    cout << "Program has been ended" << endl;
+  return 0;
 }
-return 0;
-}
+
