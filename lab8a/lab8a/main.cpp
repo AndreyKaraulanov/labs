@@ -8,58 +8,50 @@ using namespace std;
 int main()
 {
     int const SIZE = 5;
-    int smoking_space[SIZE] = { 1, 2, 3, 4, 5 };
-    int no_smoking_space[SIZE] = { 6, 7, 8, 9, 10 };
+    int smoking_area[SIZE] = { 1, 2, 3, 4, 5 };
+    int no_smoking_area[SIZE] = { 6, 7, 8, 9, 10 };
 
 
-    cout << "Welcome to booking service UkraineAirLines. " << endl;
-    cout << "We have two sitings areas \"smoking space\" and no \"smoking space\". You need to chose one." << endl;
+    cout << "Для того, чтобы забронировать билет нужно уточнить одну деталь" << endl;
 
 
-    string answer;
-    string smoke("yes");
-    string no_smoke("no");
+    string ans;
+    string smoke("да");
+    string no_smoke("нет");
 
-    int book_break = 0;
+    int booking = 0;
     int i = 0, j = 0; // arrays` index
-    while ( book_break < SIZE*2) {
+    while ( booking < SIZE*2) {
 
-        cout << "Are you smoking?<yes/no>  ";
-        cin >> answer;
+        cout << "Вы курите?  ";
+        cin >> ans;
 
-        if (cin.fail()){
-            cin.clear();
-            //cin.ignore(10000, '\n');
-            continue;
-        }
 
-        if (answer == smoke) {
+        if (ans == smoke) {
             if (i < 5) {
-                cout << " Place " << smoking_space[i] << " is booked in the smoking space!" << endl;
+                cout << " Ваше мемто № " << smoking_area[i] << endl;
                 i++;
-                book_break++;
+                booking++;
             }
             else {
-                cout << "We are sorry. All sits int smoking area has been reserved." << endl;
+                cout << "Все места в зоне для курящих заняты" << endl;
             }
         }
 
-        else if (answer == no_smoke) {
+        else if (ans == no_smoke) {
             if ( j < 5) {
-                cout << " Place " << no_smoking_space[j] << " is booked! in the no smoking space" << endl;
+                cout << " Ваше мемто № " << no_smoking_area[j] << endl;
                 j++;
-                book_break++;
+                booking++;
             }
             else {
-                cout << "We are sorry. All sits in the no smoking area has been reserved." << endl;
+                cout << "Все места в зоне для не курящих заняты" << endl;
             }
         }
     }
 
     cout << endl;
-    cout << " All sits has been reserved. Please wait or chek for another flight." << endl;
-    cout << " Fare you well!" << endl;
-    cout << endl << " Sold out!" << endl;
+    cout << " Все места уже заняты, до скорой встречи!" << endl;
   return 0;
 }
 
