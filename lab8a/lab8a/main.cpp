@@ -15,15 +15,17 @@ int main()
     cout << "Для того, чтобы забронировать билет нужно уточнить одну деталь" << endl;
 
 
-    string ans;
-    string smoke("да");
-    string no_smoke("нет");
+    char ans;
+    char smoke;
+    smoke = 'y';
+    char no_smoke;
+    no_smoke = 'n';
 
     int booking = 0;
     int i = 0, j = 0; // arrays` index
     while ( booking < SIZE*2) {
 
-        cout << "Вы курите?  ";
+        cout << "Вы курите?(y/n)  ";
         cin >> ans;
 
 
@@ -51,7 +53,7 @@ int main()
     }
 
     cout << endl;
-    cout << " Все места уже заняты, до скорой встречи!" << endl;
+    cout << " Все места заняты, до скорой встречи!" << endl;
   return 0;
 }
 

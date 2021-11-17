@@ -14,11 +14,11 @@ int main()
 
     int *arr = new int[arr_size];
 
-    int k; // num of elemnts that we add or del
-    int i; // index of first array
-    int j; // index of second array
+    int k;
+    int i;
+    int j;
 
-    // random created array
+    
     cout << "Ваш массив:" << endl;
     for ( i = 0; i < arr_size; i++) {
         arr[i] = rand() % 10 + 1;
@@ -26,19 +26,17 @@ int main()
     }
     cout << endl;
 
-    // to do qu
-    string answer;
-    string del_new("удалить");
-    string add_new("добавить");
+    char answer;
+    char del_new('d');
+    char add_new('a');
     while (true) {
 
-        cout << "Вы хотите удалить или добавить элементы? <удалить/добавить> ";
+        cout << "Вы хотите удалить или добавить элементы? <d/a> ";
         cin >> answer;
-        //cin >> answer;
+        
 
-        // add k elements
+        
         if (answer == add_new) {
-            // input
             int pos;
             cout << "Сколько элементов вы хотите добавить? ";
             cin >> k;
@@ -46,8 +44,6 @@ int main()
             cin >> pos;
     
 
-            // add loops
-            
             int *add_new_arr = new int[arr_size + k];
 
             for (i = 0; i < pos; i++) {
@@ -71,7 +67,6 @@ int main()
                 add_new_arr[i + k] = arr[i];
             }
 
-                // new array
             cout << "Ваш новый массив:" << endl;
             for (i = 0; i < arr_size + k; i++) {
                 cout << add_new_arr[i] << setw(4);
@@ -79,10 +74,8 @@ int main()
             cout << endl;
             
         }
-        // del k elements
         else if (answer == del_new) {
 
-            // input
             cout << "Сколько элементов вы хотите удалить? ";
             cin >> k;
             
@@ -101,7 +94,6 @@ int main()
                     arr[i] = arr[i + k];
                 }
 
-                // new array
                 cout << "Ваш новый массив:" << endl;
                 for (i = 0; i < arr_size - k; i++) {
                     cout << arr[i] << setw(4);
