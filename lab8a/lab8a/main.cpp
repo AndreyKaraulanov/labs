@@ -22,7 +22,7 @@ int main()
     no_smoke = 'n';
 
     int booking = 0;
-    int i = 0, j = 0; // arrays` index
+    int i = 0, j = 0; 
     while ( booking < SIZE*2) {
 
         cout << "Вы курите?(y/n)  ";
