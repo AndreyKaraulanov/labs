@@ -21,6 +21,7 @@ int main() {
                 max = j;
             }
         }
+        cout << "Максимум в " << i << " строке: " << mas[i][max];
         int t = mas[i][0];
         mas[i][0] = mas[i][max];
         mas[i][max] = t;
@@ -50,6 +51,7 @@ int main() {
                 min = i;
             }
         }
+        cout << "Минимум в " << j << " столбце: " << mas[min][j];
         int t = mas[N-1][j];
         mas[N-1][j] = mas[min][j];
         mas[min][j] = t;
