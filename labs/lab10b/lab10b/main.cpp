@@ -25,8 +25,8 @@ int main() {
         int c;
         cout << "В какой строке хотите провести исследование на положительные числа?";
         cin >> c;
-        if (c > 0 && c < n) {
-            cout << "Количество положительных: " << positive(arr, c, m);
+        if (c > 0 && c <= n) {
+            cout << "Положительные числа: " << positive(arr, c, m) << endl;
         }
         else
             cout << "В данном массиве нету столько строк";
@@ -45,6 +45,8 @@ int positive(int arr[size][size], int c, int m){
             s++;
         }
         cout << endl;
+        
     }
+    cout << "Количество положительных чисел: ";
     return s;
 }

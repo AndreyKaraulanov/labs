@@ -26,7 +26,6 @@ int main()
         cout << mas1[i] << " ";
     cout << endl;
 
-    system("pause");
     return 0;
 }
 

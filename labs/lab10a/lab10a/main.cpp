@@ -3,7 +3,7 @@
 #include <stdio.h>
 using namespace std;
 
-char f(int a, int b){
+char f(float a, float b){
     if(a>b)return '>';
     if(a<b)return '<';
     return '=';
@@ -11,8 +11,8 @@ char f(int a, int b){
 
 int main() {
     while (true) {
-        int a;
-        int b;
+        float a;
+        float b;
         cout << "Введите первое число: ";
         cin >> a;
         cout << "Введите второе число: ";
