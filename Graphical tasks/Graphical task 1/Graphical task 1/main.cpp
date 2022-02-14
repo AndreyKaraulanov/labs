@@ -29,24 +29,22 @@ int Gnome_sort(int arr[], int size){
 void heapify(int arr[], int n, int i)
 {
     int largest = i;
-    // Инициализируем наибольший элемент как корень
-        int l = 2*i + 1; // левый = 2*i + 1
-        int r = 2*i + 2; // правый = 2*i + 2
+        int l = 2*i + 1;
+        int r = 2*i + 2;
 
-     // Если левый дочерний элемент больше корня
+     
         if (l < n && arr[l] > arr[largest])
             largest = l;
 
-       // Если правый дочерний элемент больше, чем самый большой элемент на данный момент
+       
         if (r < n && arr[r] > arr[largest])
             largest = r;
 
-        // Если самый большой элемент не корень
+        
         if (largest != i)
         {
             swap(arr[i], arr[largest]);
 
-    // Рекурсивно преобразуем в двоичную кучу затронутое поддерево
             heapify(arr, n, largest);
         }
     }
@@ -114,13 +112,12 @@ int main()
         }
         
         
-        
+        cout<<"Гномья сортировка"<<endl;
         double dur_arr[M];
         double average = 0;
         if (ans == gnome) {
             for (int i = 0; i < M; i++)
             {
-
                 auto t1 = chrono::high_resolution_clock::now();
 
                 Gnome_sort(arr, size);
