@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 int sumnum(int a, int d = 0)
 {
     if (a > 0) {
@@ -9,10 +10,14 @@ int sumnum(int a, int d = 0)
         return d;
     }
 }
+
 int main() {
     int a;
+    
     cout <<" Введите натуральное число: ";
     cin>>a;
     cout<<" Сумма цифр натурального "<< a << " числа: "<<  sumnum(a) << endl;
+    
+    cout<<endl;
     return 0;
 }
