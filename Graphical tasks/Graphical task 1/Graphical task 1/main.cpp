@@ -105,7 +105,7 @@ int main()
         
         
         int prep_arr[100];
-        int arr_sorted[100];
+        //int arr_sorted[100];
             for (int i = 0; i < size; ++i) {
                 prep_arr[i] = arr[i];
                 //cout << setw(3) << arr[i];
@@ -195,7 +195,7 @@ int main()
         
         average = average / ((M / 100) * 20);
 
-        cout << endl <<"Время:" << average << "сек." << endl;
+        cout << endl <<"Время: " << average << "сек." << endl;
 
 
     }

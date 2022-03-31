@@ -4,7 +4,7 @@
  
 using namespace std;
  
-#define N 3
+#define N 4
 struct Table {
  
  
@@ -14,7 +14,7 @@ struct Table {
     float am;
  
  
-}tab[4];
+}tab[N];
  
 void in(Table tab[]) {
  
