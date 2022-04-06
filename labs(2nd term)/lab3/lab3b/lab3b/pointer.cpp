@@ -30,7 +30,7 @@ int drazmer(int* A, int size) {
 void B(int* A,int*b, int size, int count, bool vivod) {
     if (vivod == true) {
         cout << endl;
-        cout << "Îòðèöàòåëüíûé ìàññèâ:" << endl;
+        cout << "Массив с отрицательными числами:" << endl;
     }
     int nul = 0;
     count = 0;
@@ -47,14 +47,14 @@ void B(int* A,int*b, int size, int count, bool vivod) {
         }
     }
     if (vivod == 0 && nul == 0) {
-        cout << "Îòðèöàòåëüíûõ çíà÷åíèé â ìàññèâå íåò" << endl;
+        cout << "Поробуйте заново" << endl;
     }
 
 }
 void C(int* A, int* c, int size, int razm, bool vivod) {
     if (vivod == true) {
         cout << endl;
-        cout << "Ïîëîæèòåëüíûé ìàññèâ:" << endl;
+        cout << "Массив с положительными числами:" << endl;
     }
     int nul = 0;
     razm = 0;
@@ -70,7 +70,7 @@ void C(int* A, int* c, int size, int razm, bool vivod) {
     }
         if (vivod == true && nul == 0) {
             
-                cout << "Ïîëîæèòåëüíûõ çíà÷åíèé  â ìàññèâå íåò" << endl;
+                cout << "Попробуйте заново" << endl;
             
         
     }
@@ -78,7 +78,7 @@ void C(int* A, int* c, int size, int razm, bool vivod) {
     void D(int* A, int* d, int size, int razmer, bool vivod) {
         if (vivod == true) {
             cout << endl;
-            cout << "Íóëåâîé ìàññèâ:" << endl;
+            cout << "Массив с положительными числами:" << endl;
         }
         razmer = 0;
         int nul = 0;
@@ -95,7 +95,7 @@ void C(int* A, int* c, int size, int razm, bool vivod) {
         }
         if (vivod == true && nul == 0) {
             
-                cout << "Íóëåé â ìàññèâå íåò" << endl;
+                cout << "Попробуйте заново" << endl;
             
         }
     }

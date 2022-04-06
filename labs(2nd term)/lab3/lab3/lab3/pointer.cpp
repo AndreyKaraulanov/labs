@@ -4,7 +4,7 @@ int Array(int* pArr_A, int M, bool a) {
     if (a == true) {
     }
         for (int i = 0; i < M; i++) {
-            *pArr_A = rand() % 20 - 10;
+            *pArr_A = rand() % 20;
             if (a == false) {
                 pArr_A++;
             }
@@ -15,23 +15,31 @@ int Array(int* pArr_A, int M, bool a) {
     }
     return  pArr_A, M;
 }
-void Negative_numbers(int* pArr_A, int M, int* pArr_B) {
-     int* pArr_A_start = pArr_A;
-    int k = 0;
-    for (pArr_A  = pArr_A_start; pArr_A < pArr_A_start + M;++pArr_A)
-    {
-        if (*pArr_A < 0) k++;
-        
-    }
+
+
+
+void Replacement(int* pArr_A, int M,  int* pArr_B) {
     cout << endl;
-    
-    
+    int avg = *pArr_A;
+    for (int i = 0; i < M;i++) {
+        avg += *(pArr_A + i);
+    }
+    double res = avg/M;
+    cout<<res<<endl;
+    int* pArr_A_start = pArr_A;
+   int k = 0;
+   for (pArr_A  = pArr_A_start; pArr_A < pArr_A_start + M;++pArr_A)
+   {
+       if (*pArr_A < res) k++;
+       
+   }
+   cout << endl;
     
     int* pArr_B_start = pArr_B;
 
     for (pArr_A = pArr_A_start; pArr_A < pArr_A_start + M; ++pArr_A)
     {
-        if (*pArr_A < 0)
+        if (*pArr_A < res)
         {
             
             *pArr_B = *pArr_A;
@@ -45,26 +53,4 @@ void Negative_numbers(int* pArr_A, int M, int* pArr_B) {
         cout<< *pArr_B << setw(4);
         pArr_B++;
     }
-
-}
-
-
-
-
-void Replacement(int* pArr_A, int M) {
-    cout << endl;
-    int max = *pArr_A;
-    for (int i = 0; i < M;i++) {
-        if (max < *(pArr_A + i)) {
-            max = *(pArr_A + i);
-        }
-    }
-    cout << max << endl;
-    for (int i = 0; i < M; i++) {
-        if (*(pArr_A + i) >= 0) {
-            *(pArr_A + i) = max;
-        }
-        cout << *(pArr_A + i) << setw(4);
-    }
-    
 }
