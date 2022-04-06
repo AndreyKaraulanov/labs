@@ -2,10 +2,10 @@
 void Array(int* pArr_A, int size, bool a) {
     srand(time(NULL));
     if (a == true) {
-        cout << "Âàø ìàññèâ:" << endl;
+        cout << "Ваш массив:" << endl;
     }
     for (int i = 0; i < size; i++) {
-        *pArr_A = rand() % 20 - 10;
+        *pArr_A = rand() % 20;
         if (a == false) {
             pArr_A++;
         }
@@ -16,19 +16,30 @@ void Array(int* pArr_A, int size, bool a) {
     }
 
 }
-int Negative_numbers(int* pArr_A, int size, int k) {
+
+int Average(int* pArr_A, int size, int avg) {
+    
+    int res = *pArr_A;
+    for (int i = 0; i < size;i++) {
+        res += *(pArr_A + i);
+    }
+    avg = res/size;
+    return avg;
+}
+
+int Average_numbers(int* pArr_A, int size, int k, int avg) {
     for (int i = 0;i < size;i++)
     {
-        if (*(pArr_A + i) < 0)
+        if (*(pArr_A + i) < avg)
             k++;
 
     }
     return k;
 }
-int  Negative_numbers_action(int* pArr_A, int size, int k, int* pArr_B) {
+int  Average_numbers_action(int* pArr_A, int size, int k, int* pArr_B, int avg) {
     for (int i = 0;i < size;i++)
     {
-        if (*pArr_A  < 0) {
+        if (*pArr_A  < avg) {
             *pArr_B = *pArr_A;
             *pArr_B++;
         }
@@ -37,21 +48,5 @@ int  Negative_numbers_action(int* pArr_A, int size, int k, int* pArr_B) {
     return *pArr_B;
 }
 
-int Replacement_max(int* pArr_A, int size, int max) {
-    
-    for (int i = 0; i < size;i++) {
-        if (max < *(pArr_A + i)) {
-            max = *(pArr_A + i);
-        }
-    }
-    return max;
-}
 
-int Replacement(int* pArr_A, int size, int max) {
-    for (int i = 0; i < size; i++) {
-        if (*(pArr_A + i) >= 0) {
-            *(pArr_A + i) = max;
-        }
-    }
-        return *pArr_A;
-}
+

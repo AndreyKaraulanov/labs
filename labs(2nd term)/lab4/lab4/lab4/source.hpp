@@ -5,7 +5,7 @@
 #define DEBUG
 using namespace std;
 void Array(int* pArr_A, int size, bool a);
-int Negative_numbers(int* pArr_A, int size,  int k);
-int Negative_numbers_action(int* pArr_A, int size, int k, int* pArr_B);
-int Replacement_max(int* pArr_A, int size,int max);
-int Replacement(int* pArr_A, int size, int max);
+int Average_numbers(int* pArr_A, int size,  int k, int avg);
+int Average_numbers_action(int* pArr_A, int size, int k, int* pArr_B, int avg);
+int Average(int* pArr_A, int size,int avg);
+
