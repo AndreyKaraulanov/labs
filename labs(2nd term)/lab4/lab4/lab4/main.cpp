@@ -6,7 +6,6 @@ int main()
         bool a;
         int size;
         int k = 0;
-        int max = 0;
         
         cout << endl;
         cout << "Введите количество элементов массива:" << endl;
