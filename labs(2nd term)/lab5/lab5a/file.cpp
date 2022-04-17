@@ -1,7 +1,7 @@
 #include "file.hpp"
 void Fill(int** A, int N) {
     
-    cout << "Âàø ìàññèâ" << endl;
+    cout << "Ваш массив:" << endl;
     for (int i = 0; i < N;i++) {
         A[i] = new int[N];
     }
@@ -24,7 +24,7 @@ int Function(int **A, int* min, int* max, int*result, int*sum,long int* proizv, 
             }
         }
         *(min + i) = min_el;
-    }cout << "Ìàññèâ ñ ìèíèìàëüíûìè ýëåìåíòàìè â ñòîëáöå" << endl;
+    }cout << "Массив, содержащий минимальные элементы" << endl;
     for (int i = 0; i < N; i++) {
         cout << setw(4) << *(min+i);
     }
@@ -37,7 +37,7 @@ int Function(int **A, int* min, int* max, int*result, int*sum,long int* proizv, 
             }
         }
         *(max + i) = max_el;
-    }cout << "Ìàññèâ ñ ìàêñèìàëüíûìè ýëåìåíòàìè â ñòðîêå" << endl;
+    }cout << "Массив, содержащий минимальные элементы" << endl;
     
     
     for (int i = 0; i < N; i++) {

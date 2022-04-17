@@ -2,4 +2,5 @@
 #include <iostream>
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
-void Word(char*s1, char*s2);
+void Delete(char*s1, int b, int c);
+

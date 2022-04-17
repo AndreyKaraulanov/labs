@@ -1,9 +1,27 @@
 #include"file.hpp"
-void Word(char* s1, char* s2) {
-    while (*s1 != ' ') {
-            *s2 = *s1;
-            s2++; s1++;
-            
+void Delete(char*s1, int b, int c) {
+    int i;
+        for (i = 0; s1[i]; i++);
+     
+        if ((b < i) && (c < i)){
+     
+        cout << s1 << endl;
+     
+        int j = b -1;
+     
+        while (s1[j]){
+        
+     
+            s1[j] = s1 [j + c];
+            j++;
+        
+        }
+        cout << s1;} else {
+            
+            cout << "There is no so many latters in this sentence!"<< endl;
+        
+            cout << "Please choose value less than " << i << endl;
+        }
+     
+        
     }
-    *s2 = '\0';
-}

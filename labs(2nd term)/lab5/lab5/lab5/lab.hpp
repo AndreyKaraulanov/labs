@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <Windows.h>
 #include <iomanip>
 //#define DEBUG
 using namespace std;

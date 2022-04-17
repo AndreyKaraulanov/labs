@@ -15,7 +15,6 @@ int main()
         Fill(A, N);
         Function(A, min, max, result, &sum, &proizv, N);
         cout << endl;
-        cout << "Ваш массив: " << endl;
         for (int i = 0; i < 2; i++) {
             cout << *(result + i);
             cout << "\t";
