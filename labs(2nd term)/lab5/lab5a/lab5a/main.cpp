@@ -13,7 +13,7 @@ int main()
         int sum = 0;
         long  int proizv = 1;
         Fill(A, N);
-        *sp = Function(A, min, max,&sum, &proizv, N);
+        *sp = Function(A, min, max,  &sum, &proizv, N);
         cout << sp[1]<< sp[2];
         cout << endl;
         //cout << "Массив, содержащий сумму и произведение: " << endl;
