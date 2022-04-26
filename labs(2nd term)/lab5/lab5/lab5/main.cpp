@@ -5,7 +5,6 @@ int main()
     int N;
     cin >> N;
     int* A1;
-#ifdef DEBUG
     int** A2 = new int* [N];
     for (int i = 0; i < N; i++)
     {
@@ -20,8 +19,10 @@ int main()
         }
         cout << endl;
     }
+    for (int i = 0; i < N; i++) {
+        delete[]A2[i];
+    }
     delete[]A2;
-#else DEBUG
     //Создание массива
     A1 = new int[N * N];
    //функция заполнения
@@ -36,6 +37,4 @@ int main()
        cout << endl;
    }
    delete[]A1;
-    
-#endif DEBUG
 }

@@ -6,7 +6,16 @@ void Fill(int*A, int N) {
     }
 
 }
-void Pysirok(int*A, int N) {
+void PRINT(int*A, int N){
+    for (int i = 0; i < N; i++) {
+            cout << *(A + i) << setw(4);
+        }
+        cout << endl;
+}
+void Booble_sort(int*A, int N) {
+    Fill(A, N);
+    cout << "Массив до сортировки: ";
+    PRINT(A, N);
     for (int i = 0;i < N;i++) {
         for (int j = i + 1; j < N; j++) {
             if (*(A + i) > *(A + j)) {
@@ -15,65 +24,38 @@ void Pysirok(int*A, int N) {
         }
     }
     
+    cout << "Массив после сортировки: ";
+    PRINT(A, N);
+    
 }
-void Choara(int*A, int N) {
-    int i, j;
-    int lb, ub;
+void Shell_sort(int*A, int N) {
+    Fill(A, N);
+    cout << "Массив до сортировки: ";
+    PRINT(A, N);
+    int d = N / 2;
 
-    int* levo = new int[N];
-    int*pravo=new int [N];
-    int tekpoz = 1;
-    int seredina;
-    int pivot;
-    int temp;
-
-    levo[1] = 0;
-    pravo[1] = N - 1;
-    cout << endl;
-
-    do {
-      
-        lb = levo[tekpoz];
-        ub = pravo[tekpoz];
-        tekpoz--;
-
-        do {
-           
-            seredina = (lb + ub) >> 1;
-            i = lb; j = ub; pivot = A[seredina];
-            do {
-                while (*(A+i) < pivot) i++;
-                while (pivot < *(A + j)) j--;
-                if (i <= j) {
-                    temp = *(A+i); *(A + i) = *(A + j); *(A + j) = temp;
-                    i++; j--;
+        while (d > 0)
+        {
+            for (int i = 0; i < N - d; i++)
+            {
+                int j = i;
+                while (j >= 0 && *(A + j) > *(A + j + d))
+                {
+                    int temp = *(A + j);
+                    *(A + j) = *(A + j + d);
+                    *(A + j + d) = temp;
+                    j--;
                 }
-            } while (i <= j);
-            if (i < seredina) {
-                if (i < ub) {
-                    tekpoz++;
-                    levo[tekpoz] = i;
-                    pravo[tekpoz] = ub;
-                }
-
-                ub = j;
-                
             }
-            else {
-                if (j > lb) {
-                    tekpoz++;
-                    levo[tekpoz] = lb;
-                    pravo[tekpoz] = j;
-
-                }
-                lb = i;
-
-            }
-        } while (lb < ub);
-    } while (tekpoz != 0);
- 
+            d = d / 2;
+        }
+    cout << "Массив после сортировки: ";
+    PRINT(A, N);
 }
 void Gnome_sort(int*A, int N) {
+    Fill(A, N);
+    cout << "Массив до сортировки: ";
+    PRINT(A, N);
     int i = 0;
     int tmp = 0;
     while (i < N) {
@@ -88,4 +70,7 @@ void Gnome_sort(int*A, int N) {
         }
     }
    
+    cout << "Массив после сортировки: ";
+    PRINT(A, N);
+    
 }

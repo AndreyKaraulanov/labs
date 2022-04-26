@@ -9,20 +9,25 @@ int main()
         int** A = new int* [N];
         int* min = new int[N];
         int* max = new int[N];
-        int* result = new int[2];
+        int* sp = new int[2];
         int sum = 0;
         long  int proizv = 1;
         Fill(A, N);
-        Function(A, min, max, result, &sum, &proizv, N);
+        *sp = Function(A, min, max,&sum, &proizv, N);
+        cout << sp[1]<< sp[2];
         cout << endl;
-        for (int i = 0; i < 2; i++) {
-            cout << *(result + i);
+        //cout << "Массив, содержащий сумму и произведение: " << endl;
+        /*for (int i = 0; i < 2; i++) {
+            cout << *(sp + i);
             cout << "\t";
+        }*/
+        for (int i = 0; i < N; i++) {
+            delete[]A[i];
         }
         delete[]A;
         delete[]min;
         delete[]max;
-        delete[]result;
+        delete[]sp;
         cout << endl;
     }
 }

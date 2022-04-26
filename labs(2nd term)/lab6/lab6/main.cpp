@@ -3,7 +3,7 @@
 int main(void) {
     while (true) {
         int n, a, b;
-        cout << "Введите количество символов строки" << endl;
+        cout << "Введите количество символов строки(до 10000)" << endl;
         cin >> n;
         cin.get();  // пропускаем символ '\n' который остался от ввода n
         char* s1 =new char[n+1];
@@ -13,6 +13,7 @@ int main(void) {
         cin >> a;
         cout << "Введите количество элементов, которое хотите удалить";
         cin>>b;
+        
         Delete(s1, a, b);
         cout << endl;
         delete[]s1;

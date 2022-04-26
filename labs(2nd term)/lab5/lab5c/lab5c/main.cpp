@@ -3,47 +3,49 @@ int main()
 {
     while (true) {
         int N;
-        void(*p)(int *A, int N);//Огласили указатель на функцию
+        void(*p)(int *A, int N);
         cout << endl;
-        cout << "На сколько элементов создадим массив?" << endl;
+        cout << "Введите количество элементов: " << endl;
         cin >> N;
         int* A = new int[N];
-         Fill(A, N);
-        cout << "Ваш массив:" << endl;
-        for (int i = 0; i < N;i++) {
-            cout << setw(4) << *(A + i);
-        }
+        
         cout << endl;
         cout << "Выберите какой сортировкой хотите воспользоваться:" << endl;
-        cout << "(1) Пузырьком" << endl;
-        cout << "(2) Хоара" << endl;
-        cout << "(3) Гномья" << endl;
-        cout << "(4) Выход" << endl;
+        cout << "1 - Пузырьком" << endl;
+        cout << "2 - Шелла" << endl;
+        cout << "3 - Гномья" << endl;
+        cout << "4 - Выход" << endl;
         int answer;
         cin >> answer;
         if (answer == 1) {
-            p = Pysirok; p( A,  N);
+            p = Booble_sort;
+            cout << "Сортировка пузырьком";
+            p(A,  N);
          
-            for (int i = 0; i < N;i++) {
+            /*for (int i = 0; i < N;i++) {
                 cout << setw(4) << *(A + i);
             }
-            cout << endl;
+            cout << endl;*/
         }
         else if (answer == 2) {
-            p=Choara; p(A, N);
+            p=Shell_sort;
+            cout << "Сортировка Шелла";
+            p(A, N);
         
-            for (int i = 0; i < N;i++) {
+            /*for (int i = 0; i < N;i++) {
                 cout << setw(4) << *(A + i);
             }
-            cout << endl;
+            cout << endl;*/
         }
         else if (answer == 3) {
-            p=Gnome_sort; p(A, N);
+            p=Gnome_sort;
+            cout << "Гномья сортировка";
+            p(A, N);
         
-            for (int i = 0; i < N;i++) {
+            /*for (int i = 0; i < N;i++) {
                 cout << setw(4) << *(A + i);
             }
-            cout << endl;
+            cout << endl;*/
         }
         else if (answer == 4) {
             break;
