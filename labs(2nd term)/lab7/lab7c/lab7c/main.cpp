@@ -3,7 +3,8 @@
 {
     srand(time(NULL));
     int number=0;
-    
+   
     Function(number);
+    
 }
 

@@ -1,6 +1,7 @@
 #include "files.hpp"
 void Function(int number) {
     FILE* f;
+    //fstream fout;
     int a, b, c,k;
     int min = 100;
     f = fopen("f.txt", "wb");
@@ -9,12 +10,14 @@ void Function(int number) {
         for (int i = 0; i < M; i++)
         {
             number = rand() % 20 + 1;
-            fwrite(&number, sizeof(int), 1, f);
+            
             cout << number << " " ;
             if (min>number) {
                 min = number;
                 k = i;
             }
+            fwrite(&number, sizeof(int), 1, f);
+            //fprintf(%d, number);
         
     }
     fclose(f);
@@ -44,6 +47,7 @@ void Function(int number) {
     cout << "Сумма:" << sum << endl;
     fclose(f);
     cout << "Минимальный элемент:" << min << endl;
+    //fwrite(&min, sizeof(int), 1, f);
     f = fopen("f.txt", "rb");
     
         
@@ -52,10 +56,12 @@ void Function(int number) {
     {
             
         fread(&number, sizeof(int), 1, f);
+        //fread(&min, sizeof(int), 1, f);
         if (i == k) {
             number = 999;
         }
-        cout << number << " ";
+        fwrite(&number, sizeof(int), 1, f);
+        //cout << number << " ";
     }
     
     fclose(f);

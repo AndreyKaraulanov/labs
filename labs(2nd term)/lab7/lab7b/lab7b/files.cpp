@@ -60,7 +60,7 @@ void File_work3(int* mas2, int *sum) {
         
     }
     cout << endl;
-    cout << "Сумма:" << endl;
+    cout << "Сумма чётных:" << endl;
     cout << *sum << endl;
     fclose(f1);
 }
