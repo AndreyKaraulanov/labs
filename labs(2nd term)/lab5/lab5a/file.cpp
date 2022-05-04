@@ -13,7 +13,7 @@ void Fill(int** A, int N) {
         cout << endl;
     }
 }
-int Function(int **A, int* min, int* max, int*sum,long int* proizv, int N) {
+int* Function(int **A, int* min, int* max, int*sum,long int* proizv, int N) {
     int min_el=**A;
     int max_el=**A;
     for (int i = 0; i < N; i++) {
@@ -39,7 +39,7 @@ int Function(int **A, int* min, int* max, int*sum,long int* proizv, int N) {
         *(max + i) = max_el;
     }cout << "Массив, содержащий максимальные элементы" << endl;
     
-    int* sp = new int[2];
+    
     for (int i = 0; i < N; i++) {
         cout << setw(4) << *(max + i);
     }
@@ -57,9 +57,10 @@ int Function(int **A, int* min, int* max, int*sum,long int* proizv, int N) {
         //*sp=*(sp+i);
     }
     cout<<endl;
+    int* sp = new int[2];
     sp[0] = *sum;
     sp[1] = *proizv;
-    return *sp;
+    return sp;
     
     //delete[]sp;
 }

@@ -1,5 +1,9 @@
 #include "file.hpp"
 
+int func(int(*p)(int* A, int N), int* A, int N) {
+    return p(A, N);
+}
+
 void Fill(int*A, int N) {
     for (int i = 0; i < N; i++) {
         *(A + i) = rand() % 100 + 1;
@@ -12,7 +16,7 @@ void PRINT(int*A, int N){
         }
         cout << endl;
 }
-void Booble_sort(int*A, int N) {
+int Booble_sort(int*A, int N) {
     Fill(A, N);
     cout << "Массив до сортировки: ";
     PRINT(A, N);
@@ -26,9 +30,9 @@ void Booble_sort(int*A, int N) {
     
     cout << "Массив после сортировки: ";
     PRINT(A, N);
-    
+    return *A;
 }
-void Shell_sort(int*A, int N) {
+int Shell_sort(int*A, int N) {
     Fill(A, N);
     cout << "Массив до сортировки: ";
     PRINT(A, N);
@@ -51,8 +55,9 @@ void Shell_sort(int*A, int N) {
         }
     cout << "Массив после сортировки: ";
     PRINT(A, N);
+    return *A;
 }
-void Gnome_sort(int*A, int N) {
+int Gnome_sort(int*A, int N) {
     Fill(A, N);
     cout << "Массив до сортировки: ";
     PRINT(A, N);
@@ -72,5 +77,5 @@ void Gnome_sort(int*A, int N) {
    
     cout << "Массив после сортировки: ";
     PRINT(A, N);
-    
+    return *A;
 }

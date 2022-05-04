@@ -3,12 +3,12 @@ int main()
 {
     while (true) {
         int N;
-        void(*p)(int *A, int N);
+        //void(*p)(int *A, int N);
         cout << endl;
         cout << "Введите количество элементов: " << endl;
         cin >> N;
         int* A = new int[N];
-        
+        //Fill(A, N);
         cout << endl;
         cout << "Выберите какой сортировкой хотите воспользоваться:" << endl;
         cout << "1 - Пузырьком" << endl;
@@ -18,40 +18,31 @@ int main()
         int answer;
         cin >> answer;
         if (answer == 1) {
-            p = Booble_sort;
-            cout << "Сортировка пузырьком";
-            p(A,  N);
+            //p = Booble_sort;
+            cout << "Сортировка пузырьком" << endl;
+            func(Booble_sort, A,  N);
          
-            /*for (int i = 0; i < N;i++) {
-                cout << setw(4) << *(A + i);
-            }
-            cout << endl;*/
+            
         }
         else if (answer == 2) {
-            p=Shell_sort;
-            cout << "Сортировка Шелла";
-            p(A, N);
+            //p=Shell_sort;
+            cout << "Сортировка Шелла" << endl;
+            func(Shell_sort, A, N);
         
-            /*for (int i = 0; i < N;i++) {
-                cout << setw(4) << *(A + i);
-            }
-            cout << endl;*/
+            
         }
         else if (answer == 3) {
-            p=Gnome_sort;
-            cout << "Гномья сортировка";
-            p(A, N);
+            //p=Gnome_sort;
+            cout << "Гномья сортировка" << endl;
+            func(Gnome_sort, A, N);
         
-            /*for (int i = 0; i < N;i++) {
-                cout << setw(4) << *(A + i);
-            }
-            cout << endl;*/
+            
         }
         else if (answer == 4) {
             break;
         }
         else {
-            cout << "Такого действия нет, попробуйте еще" << endl;
+            cout << "Такой сортировки нет" << endl;
         }
         delete [] A;
    }
