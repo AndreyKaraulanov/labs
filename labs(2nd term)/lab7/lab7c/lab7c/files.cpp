@@ -1,68 +1,76 @@
 #include "files.hpp"
-void Function(int number) {
-    FILE* f;
-    //fstream fout;
-    int a, b, c,k;
-    int min = 100;
-    f = fopen("f.txt", "wb");
+void Function() {
+    FILE* f = fopen("f.txt", "wb");;
     
+    int number;
         cout << "Элементы: " << endl;
         for (int i = 0; i < M; i++)
         {
             number = rand() % 20 + 1;
             
             cout << number << " " ;
-            if (min>number) {
-                min = number;
-                k = i;
-            }
             fwrite(&number, sizeof(int), 1, f);
-            //fprintf(%d, number);
+            
         
     }
     fclose(f);
 
     cout << endl;
+    
     f = fopen("f.txt", "rb");
+    int hash;
+    int sum = 0;
     
-    fseek(f, 1*sizeof(int), SEEK_SET);
-    fread(&a, sizeof(int), 1, f);
+    cout << "2 элемент: ";
+    fseek(f, sizeof(int), NULL);
+    fread(&hash, sizeof(int), 1, f);
+    cout << hash << endl;
+    sum += hash;
     
-    cout << "2 элемент:" << a<<endl;
-    fclose(f);
-    f = fopen("f.txt", "rb");
+    cout << "5 элемент: ";
+    fseek(f, 4*sizeof(int), NULL);
+    fread(&hash, sizeof(int), 1, f);
+    cout << hash << endl;
+    sum += hash;
     
-    fseek(f, 4 * sizeof(int), SEEK_SET);
-    fread(&b, sizeof(int), 1, f);
+    cout << "9 элемент: ";
+    fseek(f, 8*sizeof(int), NULL);
+    fread(&hash, sizeof(int), 1, f);
+    cout << hash << endl;
+    sum += hash;
     
-    cout << "5 элемент:" << b << endl;
-    fclose(f);
-    f = fopen("f.txt", "rb");
-    
-    fseek(f, 8 * sizeof(int), SEEK_SET);
-    fread(&c, sizeof(int), 1, f);
-    
-    cout << "9 элемент:" << c << endl;
-    int sum = a + b + c;
-    cout << "Сумма:" << sum << endl;
-    fclose(f);
-    cout << "Минимальный элемент:" << min << endl;
-    //fwrite(&min, sizeof(int), 1, f);
-    f = fopen("f.txt", "rb");
-    
+    cout << "Сумма 2, 5, 9 элемента: " << sum << endl;
         
+    cout << "Минимальное значение: ";
+    int n = 999;
+    int min = INT_MAX;
+    int save_position = 0;
+    for (size_t i = 0, position = 0; i < M; i++, position++){
 
-    for (int i = 0; i < M; i++)
-    {
-            
-        fread(&number, sizeof(int), 1, f);
-        //fread(&min, sizeof(int), 1, f);
-        if (i == k) {
-            number = 999;
-        }
-        fwrite(&number, sizeof(int), 1, f);
-        //cout << number << " ";
+            fseek(f, position * sizeof(int), NULL);
+            fread(&hash, sizeof(int), 1, f);
+            if (min >= hash) {
+                min = hash;
+                save_position = position;
+            }
     }
+    cout << min << endl;
+    fseek(f, save_position * sizeof(int), NULL);
+    fwrite(&n, sizeof(int), 1, f);
     
+    for (size_t i = 0, position = 0; i < M; i++, position++) {
+            fseek(f, position * sizeof(int), NULL);
+            fread(&hash, sizeof(int), 1, f);
+            
+            if(save_position == position){
+                hash = 999;
+            }
+            fwrite(&hash, sizeof(int), 1, f);
+        
+            
+            cout << setw(4) << hash;
+    }
+
+
     fclose(f);
 }
