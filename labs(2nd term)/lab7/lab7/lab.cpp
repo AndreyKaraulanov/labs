@@ -80,7 +80,7 @@ void random(Table tab) {
         tab.name = rand() + 1;
         tab.am = rand() + 10.0;
 
-        fprintf(data, "%s\t%c\t%d\t%lg\n", tab.oboz, tab.type, tab.name, tab.am);
+        fprintf(data, "%s%c%d%lg\n", tab.oboz, tab.type, tab.name, tab.am);
       
         
     }
@@ -126,9 +126,9 @@ void print_all(Table tab) {
     printf("|     Обозначение    |    Тип    |  Номинал         | Количество |\n");
     printf("|--------------------|-----------|------------------|------------|\n");
     
-    for (size_t i = 0; i < countLine(tab) - 1; i++) {
+    for (size_t i = 0; i < countLine(tab)-1; i++) {
         fscanf(data, "%s%s%d%f", tab.oboz, &tab.type, &tab.name, &tab.am);
-        printf("|%12s|   %c   |  %-9.1d | %14lg |\n",
+        printf("|%18s|   %c   |  %-10.1d | %9lg |\n",
                tab.oboz, tab.type, tab.name, tab.am);
     }
     
@@ -149,7 +149,7 @@ void listNumberPrint(Table tab) {
 
     int choose;
 
-    cout << "Какуб информацию по номеру вы хотите увидеть?  ";
+    cout << "Какую информацию по номеру вы хотите увидеть?  ";
     cin >> choose;
     
     printf("-----------------------------------------------------------------\n");

@@ -1,0 +1,4 @@
+C:\Users\HP\Desktop\Coursework\Coursework\x64\Debug\Coursework.vcxproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Coursework\Coursework\x64\Debug\Coursework.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\HP\Desktop\Coursework\Coursework\x64\Debug\Coursework.MyForm.resources
+C:\Users\HP\Desktop\Coursework\Coursework\x64\Debug\Coursework.vcxproj.GenerateResource.cache
