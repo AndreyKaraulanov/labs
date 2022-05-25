@@ -62,10 +62,8 @@ void Function() {
             fseek(f, position * sizeof(int), NULL);
             fread(&hash, sizeof(int), 1, f);
             
-            if(save_position == position){
-                hash = 999;
-            }
-            fwrite(&hash, sizeof(int), 1, f);
+            
+            //fwrite(&hash, sizeof(int), 1, f);
         
             
             cout << setw(4) << hash;
