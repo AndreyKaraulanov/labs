@@ -9,13 +9,13 @@ int main()
     short a;
     short b;
     while (1) {
-        cout << "\n 1 - Create list\n 2 - Print list\n 3 - Find entry\n 4 - Add information \n 5 - Delete information \n 6 - Sort \n 7 - Save list \n 8 - Load list \n 9 - Clean up list \n 0 - Exit \n -->";
+        cout << "\n (1) - Создать список\n (2) - Печать списка\n (3) - Поиск по критерию\n (4) - Добавление элемента \n (5) - Удаение любого элемента \n (6) - Сортировка\n (7) - Запись списка в файл\n (8) - Создание нового списка из файла\n (9) - Очистить список \n (0) - Выхаод \n -->";
         cin >> a;
         switch (a) {
         case 1:
             FreeList();
             system("cls");
-            cout << "\n 1 - Input by console\n 2 - Random input\n -->";
+                cout << "\n 1 - Ввести самому\n 2 - Случайным образом\n -->";
             cin >> b;
             if (b == 1) {
                 CreateListConsole();
@@ -24,15 +24,15 @@ int main()
                 CreateListRandom();
             }
             else {
-                cout << " \t\t\tIncorrect input! ERROR! " << endl;
+                cout << endl << "Список создан!" << endl;
             }
             system("cls");
-            cout << endl << "List created successfully" << endl;
+                cout << endl << "Список создан!" << endl;;
             break;
         case 2:
             system("cls");
             if (!checkNULL()) break;
-            cout << "\n 1 - starting from the beginning\n 2 - starting from the end\n 3 - Back\n -->";
+            cout << "\n 1 - С начала\n 2 - С конца\n 3 - Назад\n -->";
             cin >> b;
             system("cls");
             if (b == 1)PrintList();
@@ -41,10 +41,10 @@ int main()
         case 3:
             system("cls");
             if (!checkNULL()) break;
-            cout << "\n 1 - Searching from the beginning of the list \n 2 - Searching from the end of the list\n";
+            cout << "\n 1 - Поиск с начала \n 2 - Поиск с конца\n";
             cin >> b;
             if (b == 1) {
-                cout << "\n 1 - Searching by denomination\n 2 - Searching by type\n 3 - Searching by quantity\n 4 - Searching by weight\n -->";
+                cout << "\n 1 - Поиск по обозначению\n 2 - Поиск по типу\n 3 - Поиск по номиналу\n 4 - Поиск по количеству\n -->";
                 cin >> b;
                 system("cls");
                 switch (b)
@@ -67,7 +67,7 @@ int main()
                 }
             }
             else {
-                cout << "\n 1 - Searching by denomination\n 2 - Searching by type\n 3 - Searching by quantity\n 4 - Searching by weight\n -->";
+                cout << "\n 1 - Поиск по обозначению\n 2 - Поиск по типу\n 3 - Поиск по номиналу\n 4 - Поиск по количеству\n -->";
                 cin >> b;
                 system("cls");
                 switch (b)
@@ -93,20 +93,17 @@ int main()
         case 4:
             system("cls");
             if (!checkNULL()) break;
-            cout << "\n 1 - Add information at the beginning\n 2 - Add information at the end\n 3 - Add information by tag\n 4 - Back\n -->";
+            cout << "\n 1 - Добавить информацию в начало\n 2 - В конец\n 3 - Назад\n -->";
             cin >> b;
             if (b == 1) {
                 AddTermBegin();
                 system("cls");
-                cout << "Information has been successfully added." << endl;
+                cout << "Информация добавлена." << endl;
             }
             else if (b == 2) {
                 AddTermEnd();
                 system("cls");
-                cout << "Information has been successfully added." << endl;
-            }
-            else if (b == 3) {
-                AddTermTag();
+                cout << "Информация добавлена." << endl;
             }
             else {
                 system("cls");
@@ -115,20 +112,17 @@ int main()
         case 5:
             system("cls");
             if (!checkNULL()) break;
-            cout << "\n 1 - Delete information from the beginning\n 2 - Delete information from the end\n 3 - Delete information by tag\n 4 - Back\n -->";
+                cout << "\n 1 - Удалить информацию из начала\n 2 - Удалить информацию из конца\n 3 - Назад\n -->";
             cin >> b;
             if (b == 1) {
                 DeleteTermBegin();
                 system("cls");
-                cout << "Information has been successfully deleted." << endl;
+                cout << "Информация удалена." << endl;
             }
             else if (b == 2) {
                 DeleteTermEnd();
                 system("cls");
-                cout << "Information has been successfully deleted." << endl;
-            }
-            else if (b == 3) {
-                RemoveTermTag();
+                cout << "Информация удалена." << endl;
             }
             else {
                 system("cls");
@@ -138,10 +132,10 @@ int main()
         case 6:
             system("cls");
             if (!checkNULL()) break;
-            cout << "\n 1 - Sort by denomination\n 2 - Sort by type\n 3 - Sort by quantity\n 4 - Sort by weight\n 5 - back -->";
+            cout << "\n 1 - Сортировка по обозначению\n 2 - Сортировка по типу\n 3 - Сортировка по номиналу\n 4 - Сортировка по количеству\n 5 - назад -->";
             cin >> b;
             SortTerm(b);
-            cout << "List sorted." << endl;
+            cout << "Список отсортирован" << endl;
             break;
         case 7:
             system("cls");
@@ -165,7 +159,7 @@ int main()
             break;
         default:
             system("cls");
-            cout << " \t\t\tIncorrect input! ERROR! " << endl;
+            cout << " \t\t\tОшибка! " << endl;
             break;
         }
     }

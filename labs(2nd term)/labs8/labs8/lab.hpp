@@ -11,7 +11,8 @@ using namespace std;
 struct Node
 {
     Node* next;
-    char* name = new char[15];
+    Node* prev;
+    char name[15];
     char type;
     int count;
     float weight;
@@ -35,7 +36,7 @@ void AddTermEnd(Node* begin);// adding new item in the end of the list
 
 void DeleteTermBegin(Node** begin);// delete from the beginnng of list
 void DeleteTermEnd(Node** begin);// delete from the end of list
-
+int countLine(Node* begin);
 void SortTerm(Node* begin, int set); // sorting information
 void SaveInFile(Node* begin);// writing in data.txt
 void FreeList(Node** begin);// clean list

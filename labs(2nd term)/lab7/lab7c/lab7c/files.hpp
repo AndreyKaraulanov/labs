@@ -2,6 +2,5 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#define M 20
 using namespace std;
-void Function();
+void task();

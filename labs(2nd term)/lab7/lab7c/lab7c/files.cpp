@@ -1,74 +1,70 @@
 #include "files.hpp"
-void Function() {
-    FILE* f = fopen("f.txt", "wb");;
-    
+#define size 20
+
+void task() {
+
+    FILE* data = fopen("data.bin","wb");
+
     int number;
-        cout << "Элементы: " << endl;
-        for (int i = 0; i < M; i++)
-        {
-            number = rand() % 20 + 1;
-            
-            cout << number << " " ;
-            fwrite(&number, sizeof(int), 1, f);
-            
-        
-    }
-    fclose(f);
+    cout << "Все числа: ";
+    for (int i = 0; i < size;i++) {
+        number = rand() % 15 + 2;
+        cout << setw(4) << number;
+        fwrite(&number, sizeof(int), 1, data);
+    } cout << endl;
+    fclose(data);
 
-    cout << endl;
-    
-    f = fopen("f.txt", "rb");
+    data = fopen("data.bin", "rb+");
     int hash;
-    int sum = 0;
-    
-    cout << "2 элемент: ";
-    fseek(f, sizeof(int), NULL);
-    fread(&hash, sizeof(int), 1, f);
-    cout << hash << endl;
-    sum += hash;
-    
-    cout << "5 элемент: ";
-    fseek(f, 4*sizeof(int), NULL);
-    fread(&hash, sizeof(int), 1, f);
-    cout << hash << endl;
-    sum += hash;
-    
-    cout << "9 элемент: ";
-    fseek(f, 8*sizeof(int), NULL);
-    fread(&hash, sizeof(int), 1, f);
-    cout << hash << endl;
-    sum += hash;
-    
-    cout << "Сумма 2, 5, 9 элемента: " << sum << endl;
-        
-    cout << "Минимальное значение: ";
-    int n = 999;
-    int min = INT_MAX;
-    int save_position = 0;
-    for (size_t i = 0, position = 0; i < M; i++, position++){
+    int summ = 0;
 
-            fseek(f, position * sizeof(int), NULL);
-            fread(&hash, sizeof(int), 1, f);
-            if (min >= hash) {
-                min = hash;
-                save_position = position;
-            }
+    cout << "2 элемент: ";
+    fseek(data, sizeof(int), NULL);
+    fread(&hash, sizeof(int), 1, data);
+    cout << hash << endl;
+    summ += hash;
+
+    cout << "5 элемент: ";
+    fseek(data, 4*sizeof(int), NULL);
+    fread(&hash, sizeof(int), 1, data);
+    cout << hash << endl;
+    summ += hash;
+
+    cout << "9 элемент: ";
+    fseek(data, 8 * sizeof(int), NULL);
+    fread(&hash, sizeof(int), 1, data);
+    cout << hash << endl;
+    summ += hash;
+
+    cout << "Сумма 2,5 и 9 элемента: " << summ << endl;
+
+
+
+    cout << "Минимальное: ";
+    int nnn = 999;
+    int min = INT_MAX;
+    int save_position;
+    for (size_t i = 0, position = 0; i < size; i++, position++){
+
+        fseek(data, position * sizeof(int), NULL);
+        fread(&hash, sizeof(int), 1, data);
+        if (min >= hash) {
+            min = hash;
+            save_position = position;
+        }
     }
     cout << min << endl;
-    fseek(f, save_position * sizeof(int), NULL);
-    fwrite(&n, sizeof(int), 1, f);
-    
-    for (size_t i = 0, position = 0; i < M; i++, position++) {
-            fseek(f, position * sizeof(int), NULL);
-            fread(&hash, sizeof(int), 1, f);
-            
-            
-            //fwrite(&hash, sizeof(int), 1, f);
-        
-            
-            cout << setw(4) << hash;
+    fseek(data, save_position * sizeof(int), NULL);
+    fwrite(&nnn, sizeof(int), 1, data);
+
+    for (size_t i = 0, position = 0; i < size; i++, position++) {
+
+        fseek(data, position * sizeof(int), NULL);
+        fread(&hash, sizeof(int), 1, data);
+        cout << setw(4) << hash;
     }
 
 
-    fclose(f);
+    fclose(data);
+
 }

@@ -112,7 +112,7 @@ int main()
             break;
         case 8:
             system("cls");
-            FreeList(&begin);
+            //FreeList(&begin);
             begin = LoadFromFile();
             break;
         case 9:

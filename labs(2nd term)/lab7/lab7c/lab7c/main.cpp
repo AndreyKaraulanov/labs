@@ -4,7 +4,7 @@
     srand(time(NULL));
     
    
-    Function();
+    task();
     
 }
 

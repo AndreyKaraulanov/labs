@@ -40,14 +40,14 @@ Node* CreateListRandom() { // randomize the information
 
 
 
-    current->name = name_rand[rand() % 3];
+    //current->name = name_rand[rand() % 3];
     current->type = letters[rand() % 3];
     current->count = rand() + 1;
     current->weight = rand() + 10.0;
 
     for (size_t i = 0; i < choose-1; ++i) {
         current = new Node;
-        current->name = name_rand[rand() % 3];
+        //current->name = name_rand[rand() % 3];
         current->type = letters[rand() % 3];
         current->count = rand() + 1;
         current->weight = rand() + 10.0;
@@ -406,14 +406,14 @@ void SaveInFile(Node* begin) { // writing in data.txt
     FILE* data;
     data = fopen("data.txt", "w");
     if (!data) {
-        cout << "Ошибка!" << endl;
+        cout << "ERROR. Missing data.txt" << endl;
     }
     while (current)
     {
-        fprintf(data, "%s\t%c\t%d\t%lg\n", current->name, current->type, current->count, current->weight);
+        fprintf(data, "\n%s\t%c\t%d\t%lg", current->name, current->type, current->count, current->weight);
         current = current->next;
     }
-    cout << "Файл сохранен" << endl;
+    cout << "File has been successfully saved." << endl;
     fclose(data);
 
 }
@@ -429,11 +429,11 @@ Node* LoadFromFile() { // reading from data.txt
     FILE* data;
     data = fopen("data.txt", "r");
     if (!data) {
-        cout << "Ошибка!";
+        cout << "ERROR. Missing data.txt";
         return NULL;
     }
     if (fgetc(data) == EOF) {
-        cout << "Файл пустой";
+        cout << "File is empty.";
         return NULL;
     }
     fscanf(data, "%s%s%d%f", &current->name, &current->type, &current->count, &current->weight);
@@ -444,7 +444,7 @@ Node* LoadFromFile() { // reading from data.txt
         previous = current;
     }
     current->next = NULL;
-    cout << "Файл сохранен." << endl;
+    cout << "File has been successfully saved." << endl;
     fclose(data);
     return begin;
 }

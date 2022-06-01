@@ -7,13 +7,13 @@ void CreateListConsole() { // user`s input
     head = previous = current = new Node;
 
     short n = 0;
-    cout << 1 << ") Enter: name, type, quantity, weight \n --> ";
+    cout << 1 << "Введите: обозначение, тип, номинал, количество \n --> ";
     current->prev = nullptr;
     cin >> current->name >> current->type >> current->count >> current->weight;
     for (size_t i = 0; i < 2; ++i) {
 
         current = new Node;
-        cout << i + 2 << ") Enter: name, type, quantity, weight \n --> ";
+        cout << i + 2 << "Введите: обозначение, тип, номинал, количество \n --> ";
         cin >> current->name >> current->type >> current->count >> current->weight;
         previous->next = current;
         current->prev = previous;
@@ -37,12 +37,12 @@ void CreateListRandom() { // randomize the information
 
 
     int choose;
-    cout << "How many random sets you want to create? ->  ";
+    cout << "Сколько случайных элементов хотите создать? ->  ";
     cin >> choose;
 
 
 
-    current->name = name_rand[rand() % 3];
+    //current->name = name_rand[rand() % 3];
     current->type = letters[rand() % 3];
     current->count = rand() + 1;
     current->weight = rand() + 10.0;
@@ -50,7 +50,7 @@ void CreateListRandom() { // randomize the information
 
     for (size_t i = 0; i < choose - 1; ++i) {
         current = new Node;
-        current->name = name_rand[rand() % 3];
+        //current->name = name_rand[rand() % 3];
         current->type = letters[rand() % 3];
         current->count = rand() + 1;
         current->weight = rand() + 10.0;
@@ -68,20 +68,19 @@ void CreateListRandom() { // randomize the information
 void PrintList() { // print list table information
 
     Node* current;
-    cout << "---------------------------------------------------\n";
-    cout << "|                 Parts sheet                      |\n";
-    cout << "|--------------------------------------------------|\n";
-    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
-    cout << "|------------|-------|------------|----------------|\n";
+    printf("---------------------------------------------------\n");
+    printf("|Ведомомсть комплектующих                          |\n");
+    printf("|--------------------------------------------------|\n");
+    printf("| Обозначение|  Тип  |  Номинал    |    Количество |\n");
+    printf("|------------|-------|-------------|---------------|\n");
     current = head;
     while (current) {
         printf("|%12s|   %c   |  %-9.1d | %14lg |\n", current->name, current->type, current->count, current->weight);
         current = current->next;
     }
-    cout << "----------------------------------------------------\n";
-    cout << "|Note: the following type encoding is accepted:    | \n";
-    cout << "|   O - original, P - purchased, B - borrowed      | \n";
-    cout << "---------------------------------------------------\n";
+    printf("|--------------------------------------------------|\n");
+    printf("| Примечание: R - резистор, C - конденсатор        |\n");
+    printf("----------------------------------------------------\n");
     cout << "\n\n\n\n";
 
 }
@@ -90,20 +89,19 @@ void PrintList() { // print list table information
 void PrintListReverse() { // print list table information reversed
 
     Node* current;
-    cout << "---------------------------------------------------\n";
-    cout << "|                 Parts sheet                      |\n";
-    cout << "|--------------------------------------------------|\n";
-    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
-    cout << "|------------|-------|------------|----------------|\n";
+    printf("---------------------------------------------------\n");
+    printf("|Ведомомсть комплектующих                          |\n");
+    printf("|--------------------------------------------------|\n");
+    printf("| Обозначение|  Тип  |  Номинал    |    Количество |\n");
+    printf("|------------|-------|-------------|---------------|\n");
     current = tail;
     while (current) {
         printf("|%12s|   %c   |  %-9.1d | %14lg |\n", current->name, current->type, current->count, current->weight);
         current = current->prev;
     }
-    cout << "----------------------------------------------------\n";
-    cout << "|Note: the following type encoding is accepted:    | \n";
-    cout << "|   O - original, P - purchased, B - borrowed      | \n";
-    cout << "---------------------------------------------------\n";
+    printf("|--------------------------------------------------|\n");
+    printf("| Примечание: R - резистор, C - конденсатор        |\n");
+    printf("----------------------------------------------------\n");
     cout << "\n\n\n\n";
 
 }
@@ -115,13 +113,13 @@ void SearchByDenomination(Node* p) { // searching by name
     Node* current = p;
     char* nameSearch =  new char [15];
     short count = 0;
-    cout << "Enter the denomination detail: ";
+    cout << "Введите обозначение: ";
     cin >> nameSearch;
-    cout << "---------------------------------------------------\n";
-    cout << "|                 Parts sheet                      |\n";
-    cout << "|--------------------------------------------------|\n";
-    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
-    cout << "|------------|-------|------------|----------------|\n";
+    printf("---------------------------------------------------\n");
+    printf("|Ведомомсть комплектующих                          |\n");
+    printf("|--------------------------------------------------|\n");
+    printf("| Обозначение|  Тип  |  Номинал    |    Количество |\n");
+    printf("|------------|-------|-------------|---------------|\n");
     if (current == head)
         while (current) {
             if (strcmp(current->name, nameSearch) == 0) {
@@ -138,15 +136,15 @@ void SearchByDenomination(Node* p) { // searching by name
             }
             current = current->prev;
         }
-    cout << "----------------------------------------------------\n";
-    cout << "|Note: the following type encoding is accepted:    | \n";
-    cout << "|   O - original, P - purchased, B - borrowed      | \n";
-    cout << "---------------------------------------------------\n";
+    printf("|--------------------------------------------------|\n");
+    printf("| Примечание: R - резистор, C - конденсатор        |\n");
+    printf("----------------------------------------------------\n");
+    cout << "\n\n\n\n";
     if (count > 0)
-        cout << "Total Found: " << count << endl;
+        cout << "Всего найдено: " << count << endl;
     else {
         system("cls");
-        cout << endl << "Not found" << endl;
+        cout << endl << "Не найдено" << endl;
     }
     delete[]nameSearch;
 
@@ -160,13 +158,13 @@ void SearchByType(Node* p) { // searhing by type
     Node* current = p;
     char typeSearch;
     short count = 0;
-    cout << "Enter a type of detail: ";
+    cout << "Введите тип: ";
     cin >> typeSearch;
-    cout << "---------------------------------------------------\n";
-    cout << "|                 Parts sheet                      |\n";
-    cout << "|--------------------------------------------------|\n";
-    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
-    cout << "|------------|-------|------------|----------------|\n";
+    printf("---------------------------------------------------\n");
+    printf("|Ведомомсть комплектующих                          |\n");
+    printf("|--------------------------------------------------|\n");
+    printf("| Обозначение|  Тип  |  Номинал    |    Количество |\n");
+    printf("|------------|-------|-------------|---------------|\n");
     if (current == head)
         while (current) {
             if (current->type == typeSearch) {
@@ -183,15 +181,15 @@ void SearchByType(Node* p) { // searhing by type
             }
             current = current->prev;
         }
-    cout << "----------------------------------------------------\n";
-    cout << "|Note: the following type encoding is accepted:    | \n";
-    cout << "|   O - original, P - purchased, B - borrowed      | \n";
-    cout << "---------------------------------------------------\n";
+    printf("|--------------------------------------------------|\n");
+    printf("| Примечание: R - резистор, C - конденсатор        |\n");
+    printf("----------------------------------------------------\n");
+    cout << "\n\n\n\n";
     if (count > 0)
-        cout << "Total Found: " << count << endl;
+        cout << "Всего найдено: " << count << endl;
     else {
         system("cls");
-        cout << endl << "Not found" << endl;
+        cout << endl << "Не найдено" << endl;
     }
 
 }
@@ -204,13 +202,13 @@ void SearchByQuantity(Node* p) { // searhing by count
     Node* current = p;
     int quantitySearch;
     short count = 0;
-    cout << "Enter quantity of details: ";
+    cout << "Введите номинал: ";
     cin >> quantitySearch;
-    cout << "---------------------------------------------------\n";
-    cout << "|                 Parts sheet                      |\n";
-    cout << "|--------------------------------------------------|\n";
-    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
-    cout << "|------------|-------|------------|----------------|\n";
+    printf("---------------------------------------------------\n");
+    printf("|Ведомомсть комплектующих                          |\n");
+    printf("|--------------------------------------------------|\n");
+    printf("| Обозначение|  Тип  |  Номинал    |    Количество |\n");
+    printf("|------------|-------|-------------|---------------|\n");
     if (current == head)
         while (current) {
             if (current->count == quantitySearch) {
@@ -227,15 +225,15 @@ void SearchByQuantity(Node* p) { // searhing by count
             }
             current = current->prev;
         }
-    cout << "----------------------------------------------------\n";
-    cout << "|Note: the following type encoding is accepted:    | \n";
-    cout << "|   O - original, P - purchased, B - borrowed      | \n";
-    cout << "---------------------------------------------------\n";
+    printf("|--------------------------------------------------|\n");
+    printf("| Примечание: R - резистор, C - конденсатор        |\n");
+    printf("----------------------------------------------------\n");
+    cout << "\n\n\n\n";
     if (count > 0)
-        cout << "Total Found: " << count << endl;
+        cout << "Всего найдено: " << count << endl;
     else {
         system("cls");
-        cout << endl << "Not found" << endl;
+        cout << endl << "Не найдено" << endl;
     }
 
 }
@@ -249,13 +247,13 @@ void SearchByWeight(Node* p) { // searhing by weigth
     Node* current = p;
     float weightSearch;
     short count = 0;
-    cout << "Enter details` weight: ";
+    cout << "Введите количество: ";
     cin >> weightSearch;
-    cout << "---------------------------------------------------\n";
-    cout << "|                 Parts sheet                      |\n";
-    cout << "|--------------------------------------------------|\n";
-    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
-    cout << "|------------|-------|------------|----------------|\n";
+    printf("---------------------------------------------------\n");
+    printf("|Ведомомсть комплектующих                          |\n");
+    printf("|--------------------------------------------------|\n");
+    printf("| Обозначение|  Тип  |  Номинал    |    Количество |\n");
+    printf("|------------|-------|-------------|---------------|\n");
     if (current == head)
         while (current) {
             if ((current->weight * 10) / 10 == weightSearch) {
@@ -272,22 +270,22 @@ void SearchByWeight(Node* p) { // searhing by weigth
             }
             current = current->prev;
         }
-    cout << "----------------------------------------------------\n";
-    cout << "|Note: the following type encoding is accepted:    | \n";
-    cout << "|   O - original, P - purchased, B - borrowed      | \n";
-    cout << "---------------------------------------------------\n";
+    printf("|--------------------------------------------------|\n");
+    printf("| Примечание: R - резистор, C - конденсатор        |\n");
+    printf("----------------------------------------------------\n");
+    cout << "\n\n\n\n";
     if (count > 0)
-        cout << "Total Found: " << count << endl;
+        cout << "Всего найдено: " << count << endl;
     else {
         system("cls");
-        cout << endl << "Not found" << endl;
+        cout << endl << "Не найдено" << endl;
     }
 }
 
 
 void AddTermBegin() { // adding new item in the beginning of the list
     Node* current = new Node;
-    cout << ") Enter: name, type, quantity, weight \n --> ";
+    cout << "Введите: обозначение, тип, номинал, количество \n --> ";
     cin >> current->name >> current->type >> current->count >> current->weight;
     current->prev = NULL;
     current->next = head;
@@ -316,7 +314,7 @@ void AddTermEnd() { // adding new item in the end of the list
         current = current->next;
     }
     current = new Node;
-    cout << ") Enter: name, type, quantity, weight \n --> ";
+    cout << "Введите: обозначение, тип, номинал, количество \n --> ";
     cin >> current->name >> current->type >> current->count >> current->weight;
     prev->next = current;
     current->prev = prev;
@@ -338,86 +336,6 @@ void DeleteTermEnd() { // delete from the end of list
     delete current;
 }
 
-void AddTermTag() {   // inserting item
-
-    Node* current = head, * prev = current;
-
-    char* NumberTag = new char[15];
-    cout << "Enter the previous denomination detail that will be before your`s ->  "; // item that will be the previous
-    cin >> NumberTag;
-
-    while (current) {
-        if (strcmp(prev->name, NumberTag) == 0) { // searich previous
-            current = new Node;
-            current->next = prev->next;
-            prev->next->prev = current;
-            current->prev = prev;
-            prev->next = current; // inserting
-            cout << ") Enter: name, type, quantity, weight \n --> ";
-            cin >> current->name >> current->type >> current->count >> current->weight; // insert item
-            cout << "Information has been successfully added." << endl;
-            return;
-        }
-        prev = current;
-        current = current->next;
-    }
-    if (strcmp(prev->name, NumberTag) == 0) { // searich previous
-        current = new Node;
-        cout << ") Enter: name, type, quantity, weight \n --> ";
-        cin >> current->name >> current->type >> current->count >> current->weight; // insert item
-        prev->next = current;
-        current->prev = prev; // inserting
-        current->next = NULL;
-        tail = current;
-        return;
-    }
-    system("cls");
-    cout << "\n ERROR! \n";
-    delete[] NumberTag;
-
-
-}
-
-
-void RemoveTermTag() { // remove inserted item
-    Node* current = head, * prev = NULL;
-
-    char* NumberTag = new char[15];
-    cout << "Enter the denomination detail ->  ";
-    cin >> NumberTag;
-
-    if (strcmp(current->name, NumberTag) == 0) {
-        DeleteTermBegin();
-        system("cls");
-        cout << "Information has been successfully deleted." << endl;
-        return;
-    }
-    while (current) {
-        if (strcmp(current->name, NumberTag) == 0) {
-            if (current->next == NULL) {
-                prev->next = NULL;
-                tail = prev;
-                delete current;
-                system("cls");
-                cout << "Information has been successfully deleted." << endl;
-                return;
-            }
-            current->next->prev = current->prev;
-            current->prev->next = current->next;
-            delete current;
-            system("cls");
-            cout << "Information has been successfully deleted." << endl;
-            return;
-        }
-        else {
-            prev = current;
-            current = current->next;
-        }
-    }
-    system("cls");
-    cout << "\n ERROR\n " << endl;
-    delete[] NumberTag;
-}
 void SortTerm(int set) { // sorting information
     Node* left = head;
     Node* right = head->next;
@@ -521,7 +439,7 @@ void SaveInFile() { // writing in data.txt
     }
     while (current)
     {
-        fprintf(data, "%s\t%c\t%d\t%lg\n", current->name, current->type, current->count, current->weight);
+        fprintf(data, "\n%s\t%c\t%d\t%lg", current->name, current->type, current->count, current->weight);
         current = current->next;
     }
     cout << "File has been successfully saved." << endl;
@@ -577,7 +495,7 @@ void FreeList() { // clean list
 }
 bool checkNULL() { // cheking on empty
     if (head == NULL) {
-        cout << "List is empty.";
+        cout << "Список пуст.";
         return 0;
     }
     return 1;
