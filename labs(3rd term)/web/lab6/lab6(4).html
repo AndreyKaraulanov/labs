@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab6(4)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+			body{
+	font-family: Arial;
+}
+.flex{
+	display: flex;
+	flex-direction: column;
+	border: 1px solid gray;
+
+}
+
+.first{
+	flex-grow: 1;
+	display: flex;
+	flex-basis: 500px;
+
+}
+
+.nav{
+	background-color: #C1EBEF;
+	width: 300px;
+	flex-basis: 400px;
+	padding: 20px ;
+
+}
+.right{
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+}
+
+.header{
+	background-color: yellow;
+	flex-basis: 100px;
+	padding-left: 20px;
+	text-align: center; 
+	
+}
+
+.content{
+	background-color: #CFFBFF;
+	flex-grow: 1;
+	padding: 20px;
+	
+}
+
+.footer{
+	background-color: #ACC7CA;
+	height: 150px;
+	flex-grow: 1;
+	padding: 20px;
+
+}
+    </style>
+</head>
+<body>
+	<div class="flex">
+		<div class="header"><h2>Header</h2></div>
+		<div class="first">
+				<div class="right">
+					<div class="nav"><h2>Navigation</h2></div>
+					<div class="content"><h2>Content</h2></div>
+					
+				</div>		
+			</div>
+			<div class="footer"><h2>Footer</h2></div>
+		</div>
+</body>
+</html>

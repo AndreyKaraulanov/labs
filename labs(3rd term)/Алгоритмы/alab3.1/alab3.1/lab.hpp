@@ -1,0 +1,42 @@
+#pragma once
+#include <iostream>
+#include <string>
+#include <ctime>
+#include<fstream>
+
+using namespace std;
+
+
+
+struct BinaryTree
+{
+    string FullName;
+    int IDpass;
+    int age;
+
+    BinaryTree* LeftBranch;
+    BinaryTree* RightBranch;
+
+};
+
+
+void Print(BinaryTree** Root, int l = 0); // print test
+
+bool Empty(BinaryTree* Root);
+
+void CreateTree(BinaryTree*& Root, string FullName, int IDpass, short int age);
+
+float avarageAge(BinaryTree*& Root);
+
+void del(BinaryTree*& Root);
+
+
+void pr_obh(BinaryTree*& Root);
+void zb_obh(BinaryTree*& Root);
+void sm_obh(BinaryTree*& Root);
+
+void del_left_tree(BinaryTree*& Root);
+void del_right_tree(BinaryTree*& Root);
+void del_branch(BinaryTree*& Root, int age);
+
+void write_trea_in_file(BinaryTree* Root);

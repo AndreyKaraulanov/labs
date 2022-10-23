@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lab4</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+		.main{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+		}
+		.container{
+			position: relative;
+			margin: 100px;
+
+		}
+		.box{
+			width: 200px;
+			height: 300px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+		}
+		.box1{
+			background-color: #000000;
+		}
+		.box2{
+			background-color: #000080;
+		}
+		.box3{
+			background-color: #008000;
+		}
+		.box4{
+			background-color: #ff0000;
+		}
+		.box5{
+			background-color: #ffff00;
+		}
+		.container .box1{
+			z-index: 0;
+		}
+		.container .box2{
+			position: absolute;
+			top: 50px;
+			left: 50px;
+			z-index: 3;
+		}
+		.container .box3{
+			position: absolute;
+			top: 300px;
+			left: 10px;
+			z-index: 1;
+		}
+		.container .box4{
+			position: absolute;
+			top: 200px;
+			left: 220px;
+			z-index: 2;
+		}
+		.container .box5{
+			position: absolute;
+			top: 50px;
+			left: 320px;
+			z-index: 4;
+		}
+    </style>
+</head>
+<body>
+	<div class = "main">
+		<div class="container">
+			<div class="box box1">box1</div>
+			<div class="box box2">box2</div>
+			<div class="box box3">box3</div>
+			<div class="box box4">box4</div>
+			<div class="box box5">box5</div>
+		</div>
+		
+	</div>
+	
+</body>
+</html>

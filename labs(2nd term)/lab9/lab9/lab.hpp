@@ -10,9 +10,10 @@ struct Node
     Node* next;
     Node* prev;
     char name[15];
-    char type;
-    int count;
-    float weight;
+    unsigned int num;
+    unsigned int type;
+    unsigned int count;
+    unsigned int weight;
 };
 
 

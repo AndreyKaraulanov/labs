@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab8(1)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+	
+
+    </style>
+</head>
+<body>
+	<form action="">
+        <input type="button" value="Create array" id="crt">
+        <div id="result">
+
+        </div>
+    </form>
+</body>
+<script>
+    document.getElementById("crt").onclick = () => {
+    document.getElementById("result").innerHTML = GenerateArr();
+}
+
+function GenerateArr() {
+    let arr = [];
+    let length = getRndInteger(20, 40);
+    for (let i = 0; i < length; i++) {
+        arr.push(getRandomFloat(-100, -20, 2))
+    }
+    return arr;
+}
+
+function getRandomFloat(min, max, decimals) {
+    const str = (Math.random() * (max - min) + min).toFixed(decimals);
+    return parseFloat(str);
+}
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+</script>
+</html>

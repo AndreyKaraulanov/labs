@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab5(6)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+			.main{
+	background-color:lightgrey;
+	width: 100%;
+	border-radius: 20px;
+	height: 900px;
+}
+.radio{
+	display: none;
+}
+.radiofake{
+	display: inline-block;
+	width: 380px;
+	line-height:150px;
+	text-align: center;
+	margin: 20px 0px 0px 20px;
+
+	color: white;
+	font-size: 20px;
+	font-family: sans-serif;
+	font-weight: bold;
+
+	background-color:#3399FF;
+	box-shadow: 0px 8px 1px #66B2FF;	
+	
+	border-radius: 4px;
+
+	position: relative;
+	cursor: pointer;
+	top: 0;
+	transition: all 200ms ease-in-out;
+}
+.radiofake:hover{
+	background-color: #FFFF99;
+}
+.radio:checked~ .block{
+	transition: 100ms ease-in ;
+	transform: scale(1);
+}
+
+.radio:checked~ .radiofake{
+	top: 5px;
+	box-shadow: 0px 3px 1px #040E14;
+	background-color: #CCFFCC;
+}
+
+
+
+.block{
+	line-height: 30px;
+	width: 500px;
+	padding: 10px;
+	background-color: #00FF00;
+	color: white;
+	font-family: courier-new;
+	font-size: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px black;
+	transform: scale(0);
+	transition-duration: 100ms;
+	left: 500px;
+	
+}
+.block_1{
+	position: absolute;
+	top:  15px;
+
+}
+.block_2{
+	position: absolute;
+	
+	top:190px;
+}
+.block_3{
+	position: absolute;
+	
+	top: 350px;
+}
+.block_4{
+	position: absolute;
+
+	top: 520px;
+}
+
+
+.block_5{
+	position: absolute;
+
+	top: 700px;
+}
+    </style>
+</head>
+<body>
+	<div class="main">
+	<div>
+		<label>
+		<input type="radio" name="part" class="radio">
+		<span class="radiofake">РОЗДІЛ 1</span>	
+		<span class="block block_1"><b>Блок перший</b> <br>
+		Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Ipsa quaerat odit quasi blanditiis harum. Eligendi, possimus, saepe, exercitationem tenetur itaque delectus, quos similique iure minus laudantium dolore facilis? Velit, eaque.</span>	
+		</label>
+	</div>
+
+
+	<div>
+		<label>
+		<input type="radio" name="part" class="radio">
+		<span class="radiofake">РОЗДІЛ 2</span>		
+		<span class="block block_2"><b>Блок другий</b> <br>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nisi quidem, libero ab architecto, sint asperiores aspernatur expedita nam, magnam repellendus ad similique aperiam fuga, amet alias. Nam, et, facilis.
+		</span>	
+		</label>
+	</div>
+
+	<div>
+		<label>
+		<input type="radio" name="part" class="radio">
+		<span class="radiofake">РОЗДІЛ 3</span>	
+		<span class="block block_3"><b>Блок третій</b> <br>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nobis excepturi nostrum perferendis blanditiis cum ipsa, voluptatum, quaerat totam voluptatibus laudantium vel sunt asperiores, corrupti facilis obcaecati voluptas, unde at?
+		</span>	
+		</label>
+	</div>
+
+
+	<div>
+		<label>
+		<input type="radio" name="part" class="radio">
+		<span class="radiofake">РОЗДІЛ 4</span>		
+		<span class="block block_4"><b>Блок четвертий</b> <br>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nobis dignissimos quod modi, saepe quos, magni vero. Odit dolor ipsa asperiores, optio quidem ratione pariatur minus, atque voluptatibus animi dicta!
+		</span>	
+		</label>
+	</div>
+
+	<div>
+		<label>
+		<input type="radio" name="part" class="radio">
+		<span class="radiofake">РОЗДІЛ 5</span>		
+		<span class="block block_5"><b>Блок п'ятий</b> <br>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nobis dignissimos quod modi, saepe quos, magni vero. Odit dolor ipsa asperiores, optio quidem ratione pariatur minus, atque voluptatibus animi dicta!
+		</span>	
+		</label>
+	</div>
+
+</div>
+</body>
+</html>

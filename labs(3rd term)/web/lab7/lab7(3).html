@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab7(3)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+	
+
+    </style>
+</head>
+<body>
+	<form action="" method="post" id="calc">
+        
+            <div class="text">Катет 1</div>
+            <input type="number" name="length" id="length">
+        
+        
+            <div class="text">Катет 2</div>
+            <input type="number" name="width" id="width">
+        <div class="">
+            <button type="submit" id="P">Периметр</button>
+        <button type="submit" id="S">Гіпотенуза</button>
+        </div>
+        
+    </form>
+</body>
+<script>
+    document.forms.calc.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let a=document.getElementById("length").value;
+  let b=document.getElementById("width").value;
+  console.log();
+  if (a<=0||b<=0) {
+    alert("Incorrect values!");
+    return;
+  }
+  switch (e.submitter.id) {
+    case "P":
+        alert((2*Number(a)+Number(b)));
+        break;
+    case "S":
+        alert((Math.sqrt((Number(a)*Number(a))+(Number(b)*Number(b)))));
+        break;
+  }
+});
+</script>
+</html>

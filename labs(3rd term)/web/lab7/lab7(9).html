@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab7(9)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+	
+    </style>
+</head>
+<body>
+	<form action="" method="post">
+        Оберіть комп'ютер
+        <ul id="list">
+
+        </ul>
+        <input type="text" name="" id="arg">
+        <input type="button" value="Add" id="add" disabled>
+        <input type="button" value="Remove" id="rm" disabled>
+        <input type="button" value="Save" id="sv" disabled>
+    </form>
+</body>
+<script>
+   document.getElementById("add").onclick = () => {
+    li = document.createElement("li");
+    let arg = document.getElementById("arg").value;
+    if (arg == "") {
+        return
+    }
+    document.getElementById("arg").value = "";
+    li.innerHTML = arg;
+    document.getElementById("list").appendChild(li);
+    document.getElementById("add").disabled = true;
+}
+
+
+
+document.getElementById("list").addEventListener("click", (event) => {
+    let target = event.target;
+    if (target.tagName != "LI") {
+        return;
+    }
+    target.style.backgroundColor = "black";
+    target.style.color = "white";
+    target.className = "toRm"
+    document.getElementById("rm").disabled = false;
+});
+
+
+document.getElementById("list").addEventListener("dblclick", (event) => {
+    let target = event.target;
+    if (target.tagName != "LI") {
+        return;
+    }
+    target.className = "toEdit"
+    document.getElementById("arg").value = target.textContent;
+    document.getElementById("rm").disabled = true;
+    document.getElementById("add").disabled = true;
+    document.getElementById("sv").disabled = false;
+});
+
+document.getElementById("arg").onkeyup = () => {
+    if (document.getElementById("arg").value == ""||document.getElementById("sv").disabled == false) {
+        document.getElementById("add").disabled = true;
+    } else {
+        document.getElementById("add").disabled = false;
+    }
+}
+
+
+document.getElementById("rm").onclick = () => {
+    let l = document.getElementById("list").children;
+    if (l == null) {
+        return;
+    }
+    for (let item of l) {
+        if (item.className == "toRm") {
+            item.remove();
+        }
+    }
+    document.getElementById("rm").disabled = true;
+}
+
+document.getElementById("sv").onclick = () => {
+    let l = document.getElementById("list").children;
+    if (l == null) {
+        return;
+    }
+    for (let item of l) {
+        if (item.className == "toEdit") {
+            item.textContent = document.getElementById("arg").value;
+            item.style.color="black";
+            item.style.backgroundColor="white";
+            item.className="";
+        }
+    }
+    document.getElementById("sv").disabled = true;
+}
+</script>
+</html>

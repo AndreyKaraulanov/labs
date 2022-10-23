@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab5(9)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+			:root{
+	--circlecolor: #4B0082;
+	--textcolor: #7B68EE;
+	--bg: #DDA0DD;
+}
+body{
+	background-color: var(--bg);
+}
+.circle{
+	background-color: var(--circlecolor);
+	line-height: 100px;
+	width: 100px;
+	font-weight: bold;
+	text-transform: uppercase;
+
+	color: var(--textcolor);
+	text-align: center;
+	position: relative;
+	left: 0;
+	animation-name: white-square, tranformation;
+	animation-duration: 3.5s ;
+	animation-iteration-count: 3;
+	animation-fill-mode: normal;
+	
+
+}
+
+@keyframes white-square{
+
+	0%
+	{
+		margin-left: 0%;
+		margin-top: 20%;
+	}
+	25%
+	{
+		margin-left: 0%;
+		margin-top: 20%;
+	}
+	
+	
+	50%
+	{
+		margin-left: 0%;
+		margin-top: 0%;
+	}
+	
+	75%
+	{
+		margin-left: 50%;
+		margin-top: 20%;
+	}
+	100%
+	{
+		margin-left: 0%;
+		margin-top: 20%;
+	}
+}
+@keyframes tranformation{
+	0%{
+		transform: rotate(0);
+	}
+
+	100%{
+		transform: rotate(10deg);
+	}
+}
+    </style>
+</head>
+<body>
+	<div class="circle"> Блок </div>
+</body>
+</html>

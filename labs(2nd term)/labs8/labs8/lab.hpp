@@ -1,5 +1,7 @@
 #define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <string>
+#include <ctime>
 
 using namespace std;
 
@@ -7,37 +9,45 @@ using namespace std;
 
 
 
-
-struct Node
-{
+struct Node {
+    int number;
     Node* next;
-    Node* prev;
-    char name[15];
-    char type;
-    int count;
-    float weight;
+};
+
+struct DList {
+    int number;
+    DList* next;
+    DList* prev;
 };
 
 
+void inputCheker();
+
+// doubly node
+
+
+void CreateDListConsole(int count, DList** Dhead, DList* Dtail);
+void PrintDlist(DList* Dhead);
+void DInsert(DList** Dhead, DList** Dtail, int pos);
+void DeleteDlist(DList** Dhead, DList** Dtail, int pos);
+bool DcheckNULL(DList* Dhead);
+short int CountOfDlist(DList* Dhead);
+void FreeDlist(DList** Dhead);
+void SwapDlsit(const int value1, const int value2, DList* Dhead);
+void SaveInFileDlist(DList* Dhead);
+void LoadFromFileDlist(DList** Dhead, DList** Dtail);
 
 
 
-
-Node* CreateListConsole();// user`s input
-Node* CreateListRandom();// randomize the information
-Node* LoadFromFile();// reading from data.txt
-void PrintList(Node* begin);// print list table information
-void SearchByDenomination(Node* begin); // searching by name
-void SearchByType(Node* begin);// searhing by type
-void SearchByQuantity(Node* begin);// searhing by count
-void SearchByWeight(Node* begin);// searhing by weigth
-void AddTermBegin(Node** begin);// adding new item in the beginning of the list
-void AddTermEnd(Node* begin);// adding new item in the end of the list
-
-void DeleteTermBegin(Node** begin);// delete from the beginnng of list
-void DeleteTermEnd(Node** begin);// delete from the end of list
-int countLine(Node* begin);
-void SortTerm(Node* begin, int set); // sorting information
-void SaveInFile(Node* begin);// writing in data.txt
-void FreeList(Node** begin);// clean list
-bool checkNULL(Node* begin);// cheking on empty
+// singly node
+void CreateNodeConsole(int count, Node** head);
+void PrintNode(Node* head);
+void Insert(Node* head, int check);
+void Delete(Node** head, int check);
+void FreeNode(Node** head);
+bool checkNULL(Node* head); // cheking on empty
+short int CountOfNode(Node* head);
+void Split(Node** head, Node** begin);
+void SwapNode(const int value1, const int value2, Node* head);
+void SaveInFileNode(Node* head);
+void LoadFromFile(Node** head);

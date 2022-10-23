@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab2</title>
+</head>
+<body>
+	<ol type="A" start = "7">
+		<li>Киев</li>
+		<li>Харьков</li>
+		<li>Львов</li>
+		<li>Одесса</li>
+		<li>Днепр</li>
+	</ol>
+	<hr>
+	<ol type="A" start = "7">
+		<li><a href="Киев.html">Киев</a></li>
+		<li><a href="Харьков.html">Харьков</a></li>
+		<li><a href="Львов.html">Львов</a></li>
+		<li><a href="Одесса.html">Одесса</a></li>
+		<li><a href="Днепр.html">Днепр</a></li>
+	</ol>
+	<hr>
+	<img src = "images/Киев.jpeg" usemap="#primary" height="162" width="300">
+	<map name = "primary">
+		<area shape="rect" coords="107,0,193,44" href="Киев.html">
+		<area shape="rect" coords="0,54,107,108" href="Киев.html">
+		<area shape="rect" coords="107,108,193,162" href="Киев.html">
+		<area shape="rect" coords="300,54,107,108" href="Киев.html">
+	</map>
+	<hr>
+	<img src = "images/Харьков.jpeg" usemap="#secondary" height="162" width="300">
+	<map name = "secondary">
+		<area shape="circle" coords="150,81,40" href="Харьков.html">
+		<area shape="circle" coords="260,81,40" href="Харьков.html">
+		<area shape="circle" coords="260,121,40" href="Харьков.html">
+	</map>
+	<hr>
+	<img src = "images/Львов.jpeg" usemap="#navigation" height="162" width="300">
+	<map name = "navigation">
+		<area shape="poly" coords="0,0,150,0,150,81" href="Львов.html">
+		<area shape="poly" coords="150,0,300,0,300,81" href="Львов.html">
+		<area shape="poly" coords="0,81,150,81,150,162" href="Львов.html">
+		<area shape="poly" coords="150,81,300,81,300,162" href="Львов.html">
+	</map>
+	<hr>
+	<img src = "images/Одесса.jpeg" usemap="#navigation2" height="162" width="300">
+	<map name = "navigation2">
+		<area shape="poly" coords="4,0,4,162,120,162" href="Одесса.html">
+		<area shape="circle" coords="150,15,40" href="Одесса.html">
+		<area shape="rect" coords="170,108,300,162" href="Одесса.html">
+	</map>
+	<hr>
+	<table width = "80%" height = "100">
+		<tr>
+			<td align = "left"><video controls src = "images/Кравчук.mp4" height="65" width="65" ></video></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><audio src = "audio/Гимн.mp3" controls></audio></td>
+		</tr>
+		<tr>
+			<td align = "center"><audio src = "audio/Гимн.mp3" controls autoplay></audio></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td align = "right"><video controls src = "images/Кравчук.mp4" height="65" width="65" ></video></td>
+			<td></td>
+			<td></td>
+			<td align = "right"><video controls src = "images/Кравчук.mp4" height="65" width="65"></video></td>
+			<td></td>
+		</tr>
+		
+	</table>
+
+
+</body>
+</html>

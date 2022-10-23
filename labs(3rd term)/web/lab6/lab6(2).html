@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab6(1)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+		.page{
+	background-color: gray;
+	display: grid;
+	grid-template-columns: 300px 1fr 200px ;
+	grid-template-rows: 100px 450px 100px 150px;
+
+}
+.page>div{
+	padding: 20px;
+	font-family: Arial;
+	line-height: 25px;
+	
+}
+
+
+.header{
+	background:yellow;
+	grid-column: span 3;
+
+}
+
+.navigation{
+	background:#C1EBEF;
+	grid-column: span 1;
+	grid-row: span 2;
+}
+
+.content{
+	background: #CFFBFF;
+	grid-column: span 1;
+	grid-row: span 2;
+}
+
+.footer{
+	background: #ACC7CA;
+	grid-column: span 2;
+}	
+    </style>
+</head>
+<body>
+	<div class="page">
+		<div class="header"><h2>Header</h2></div>
+		<div class="navigation"><h2>Navigation</h2></div>
+		<div class="content"><h2>Content</h2></div>
+		
+		<div class="footer"><h2>Footer</h2></div>
+	</div>
+</body>
+</html>

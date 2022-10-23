@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab7(5)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+	
+
+    </style>
+</head>
+<body>
+	<form action="" method="post">
+        Оберіть комп'ютер
+        <ul id="list">
+
+        </ul>
+        <input type="text" name="" id="arg">
+        <input type="button" value="Add" id="add">
+        <input type="button" value="Remove" id="rm">
+    </form>
+</body>
+<script>
+    document.getElementById("add").onclick=()=>{
+    li=document.createElement("li");
+    let arg=document.getElementById("arg").value;
+    if (arg=="") {
+        return
+    }
+    document.getElementById("arg").value="";
+    li.innerHTML=arg;
+    document.getElementById("list").appendChild(li);
+}
+
+document.getElementById("rm").onclick=()=>{
+    document.getElementById("list").removeChild(document.getElementById("list").lastChild);
+}
+</script>
+</html>

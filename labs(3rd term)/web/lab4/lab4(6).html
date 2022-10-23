@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lab4</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+		fieldset {
+    		background-color:  #dfdfdf;
+    		border:  1px solid #ccc;
+    		border-radius: 4px;
+    		margin:  2em 0;
+    		padding:  1em;
+		}
+		button{
+			background-color: #008000;
+			border-radius: 5px;
+			box-shadow: 10px 5px 5px red;
+		}
+		input {
+  			width: 100%;
+  			font-size: 1rem;
+  			background: #eeeeee;
+  			border: 1px solid transparent;
+  			box-sizing: border-box;
+  			outline: none;
+  			padding: 0.75rem 1.25rem;
+  			margin-bottom: 0.75rem;
+		}
+    </style>
+</head>
+<body>
+	<form>
+		
+		<fieldset>
+			<legend>Контактна інформація</legend>
+			<table cellpadding = "4" align="left" width="45%">
+				<tr>
+					<td><label>Ім'я</label></td>
+					<td align="center"><input type="text" size="40"></td>
+				</tr>
+				<tr>
+					<td><label>Телефон</label></td>
+					<td align="center"><input type="text" size="40"></td>
+				</tr>
+				<tr>
+					<td><label>Пошта</label></td>
+					<td align="center"><input type="text" size="40"></td>
+				</tr>
+				<tr>
+					<td><label>Дата відвідування</label></td>
+					<td align="center"><input type="text" size="40"></td>
+				</tr>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend>Персональна інформація</legend>
+			<table cellpadding = "4" align="left" width="45%">
+				<tr>
+					<td><label>Вік</label></td>
+					<td align="center"><input type="text"></td>
+				</tr>
+				<tr>
+					<td><label>Улюблена кухня</label></td>
+					<td align="center"><select name="Улюблена кухня">
+			<option value="value1">Грецька</option>
+			<option value="value2">Італійська</option>
+			<option value="value3">Французська</option>
+			<option value="value4">Українська</option>
+			<option value="value5">Американська</option>
+			<option value="value6">Японська</option>
+			<option value="value7">Турецька</option>
+			<option value="value8">Іспанська</option>
+		</select></td>
+				</tr>
+				<tr>
+					<td><label>Які страви ви б хотіли бачити в меню?</label></td>
+					<td align="center"><textarea></textarea></td>
+				</tr>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend>Оцінка нащої установи</legend>
+			<table cellpadding = "4" align="left" width="45%">
+				<tr>
+					<td><span style="font-family: Arial">Чому обрали нашу установу?</span></td>
+					<td ></td>
+				</tr>
+				<tr>
+					<td><input type="radio"><label>Недалкео від роботи/дому</label></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><input type="radio"><label>Побачив рекламу</label></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><input type="radio"><label>Порадили</label></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><input type="radio"><label>Оптимальне співвідношення</label></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><label>Чому будете рекламувати нашу установу друзям та знайомим?</label></td>
+					<td ></td>
+				</tr>
+			</table>
+			
+		</fieldset>
+		<table>
+				<tr>
+				<td align="right"><button type="submit">Відправити</button></td>
+				<td align="right"><button type="reset">Відмовитися</button></td>
+			</tr>
+			</table>
+	</form>
+	
+</body>
+</html>
