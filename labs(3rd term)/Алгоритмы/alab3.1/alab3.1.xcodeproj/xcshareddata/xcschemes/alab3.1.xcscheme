@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00EF0FEA2901D308008BFD3E"
+               BlueprintIdentifier = "00C170EC2914166300E9305A"
                BuildableName = "alab3.1"
                BlueprintName = "alab3.1"
                ReferencedContainer = "container:alab3.1.xcodeproj">
@@ -36,7 +36,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/andrejkaraulanov/Desktop/labs/labs/labs/labs(3rd term)/alab3.1/alab3.1"
+      customWorkingDirectory = "/Users/andrejkaraulanov/Desktop/labs/labs/labs/labs(3rd term)/&#x410;&#x43b;&#x433;&#x43e;&#x440;&#x438;&#x442;&#x43c;&#x44b;/alab3.1/alab3.1"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -45,7 +45,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "00EF0FEA2901D308008BFD3E"
+            BlueprintIdentifier = "00C170EC2914166300E9305A"
             BuildableName = "alab3.1"
             BlueprintName = "alab3.1"
             ReferencedContainer = "container:alab3.1.xcodeproj">
@@ -62,7 +62,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "00EF0FEA2901D308008BFD3E"
+            BlueprintIdentifier = "00C170EC2914166300E9305A"
             BuildableName = "alab3.1"
             BlueprintName = "alab3.1"
             ReferencedContainer = "container:alab3.1.xcodeproj">

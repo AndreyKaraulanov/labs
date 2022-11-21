@@ -6,7 +6,8 @@
 	<title>lab7(7.2)</title>
 	<style rel="stylesheet" type="text/css" media="screen">
 	td,th,tr{
-    border: 1px solid black;
+    border: 3px solid green;
+    background-color: red;
 }
 
 .container{
@@ -20,25 +21,26 @@
 	<form action="" method="post">
         <table id="list">
             <tr id="block">
-                <th>Країна виробник</th>
-                <th>Скільки часу на ринку</th>
-                <th>Кількість користувачів</th>
-                <th>Назва</th>
-                <th>Примітки</th>
+                <th>Країна</th>
+                <th>Вік</th>
+                <th>Жанр музики</th>
+                <th>Прізвище</th>
+                <th>Рідне місто</th>
             </tr>
             
         </table>
         <div class="container">
-            <input type="text" name="" id="country" placeholder="Країна виробник">
-            <input type="text" name="" id="age" placeholder="Скільки часу на ринку">
-            <input type="text" name="" id="genre" placeholder="Кількість користувачів">
-            <input type="text" name="" id="surname" placeholder="Назва">
-            <input type="text" name="" id="notes" placeholder="Примітки"><br>
+            <input type="text" name="" id="country" placeholder="Країна музиканта">
+            <input type="text" name="" id="age" placeholder="Вік музиканта">
+            <input type="text" name="" id="genre" placeholder="Жанр музики">
+            <input type="text" name="" id="surname" placeholder="Прізвище">
+            <input type="text" name="" id="notes" placeholder="Рідне місто"><br>
         </div>
 
-        <input type="button" value="Add" id="add">
-        <input type="button" value="Remove" id="rm">
+        <input type="button" value="Додати" id="add">
+        <input type="button" value="Видалити" id="rm">
     </form>
+
 </body>
 <script>
     document.getElementById("add").onclick=()=>{

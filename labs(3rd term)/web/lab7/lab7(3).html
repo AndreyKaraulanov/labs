@@ -12,15 +12,15 @@
 <body>
 	<form action="" method="post" id="calc">
         
-            <div class="text">Катет 1</div>
+            <div class="text">1 сторона</div>
             <input type="number" name="length" id="length">
         
         
-            <div class="text">Катет 2</div>
+            <div class="text">2 сторона</div>
             <input type="number" name="width" id="width">
         <div class="">
             <button type="submit" id="P">Периметр</button>
-        <button type="submit" id="S">Гіпотенуза</button>
+        <button type="submit" id="S">Площа</button>
         </div>
         
     </form>
@@ -37,10 +37,10 @@
   }
   switch (e.submitter.id) {
     case "P":
-        alert((2*Number(a)+Number(b)));
+        alert((Number(a)+Number(b))*2);
         break;
     case "S":
-        alert((Math.sqrt((Number(a)*Number(a))+(Number(b)*Number(b)))));
+        alert(a*b);
         break;
   }
 });

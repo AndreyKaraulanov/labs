@@ -11,8 +11,8 @@
 </head>
 <body>
 	<form action="" method="post" id="creator">
-        <input type="button" value="Додати" id="add">
-        <input type="button" value="Видалити" id="rm">
+        <input type="button" value="Додати елемент" id="add">
+        <input type="button" value="Видалити елемент" id="rm">
     </form>
 </body>
 <script>
@@ -24,10 +24,8 @@
     div.style.left = String(getRandomInt(500))+"px";
     div.style.width = String(getRandomInt(300))+"px";
     div.style.height = String(getRandomInt(100))+"px";
-    div.style.fontsize = String(getRandomInt(100))+"px";
     div.style.backgroundColor = `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
-
-    div.innerHTML="Ukarine"
+    div.innerHTML=getRandomInt(10000)
     document.getElementsByTagName("body")[0].appendChild(div);
 }
 

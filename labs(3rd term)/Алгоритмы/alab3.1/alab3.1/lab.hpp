@@ -2,7 +2,13 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-#include<fstream>
+#include <fstream>
+#include <vector>
+#include <functional>
+#include <algorithm>
+#include <tuple>
+#include <stdexcept>
+#include <memory>
 
 using namespace std;
 
@@ -19,6 +25,11 @@ struct BinaryTree
 
 };
 
+int size(BinaryTree*& Root);
+
+void get_data(BinaryTree* Root, BinaryTree* mass, int count);
+
+void CreateNewTree(BinaryTree*& Root, string FullName, int IDpass, short int age);
 
 void Print(BinaryTree** Root, int l = 0); // print test
 
@@ -40,3 +51,6 @@ void del_right_tree(BinaryTree*& Root);
 void del_branch(BinaryTree*& Root, int age);
 
 void write_trea_in_file(BinaryTree* Root);
+
+
+void PrintTest(BinaryTree const* node);

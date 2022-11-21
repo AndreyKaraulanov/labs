@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+  
+<head>
+    <title>exercise 6</title>
+</head>
+  
+<body style="text-align:center;">
+    <h1 style="color: rgb(0, 119, 128)">  Згенерувати масив  </h1>
+    <p id="GFG_UP"> </p>
+    <table>
+        <tr>
+            <td> <button onclick="gfg_Run()"> Натисніть сюди, щоб згенерувати 100 </button> </td>
+            <td><button onclick="gf_Run()"> Натисніть сюди, щоб згенерувати 200 </button></td>
+            <td><button onclick="g_Run()"> Натисніть сюди, щоб згенерувати 500 </button></td>
+            <td><button onclick="Run()"> Натисніть сюди, щоб згенерувати 1000 </button></td>
+            <td><button onclick="un()"> Натисніть сюди, щоб згенерувати 5000 </button></td>
+            <td><button onclick="n()"> Натисніть сюди, щоб згенерувати 10000 </button></td>
+            <td><button onclick="fg_Run()"> Натисніть сюди, щоб згенерувати 25000 </button></td>
+            <td><button onclick="gfgRun()"> Натисніть сюди, щоб згенерувати 50000  </button></td>
+            <td><button onclick="gfg_R()"> Натисніть сюди, щоб згенерувати 100000 </button></td>
+            <td><button onclick="test_find()">Find first positive </button></td>
+        </tr>
+    </table>
+    <p id="GFG_DOWN" style="color:rgb(0, 119, 128);"></p>
+  
+    <script>
+        var el_up = document.getElementById("GFG_UP");
+        var el_down = document.getElementById("GFG_DOWN");
+        el_up.innerHTML = "Натисніть на кпнопку, щоб згенерувати масив.";
+
+        function gfg_Run() 
+        {
+            var l = Math.floor(100);
+            arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+        }
+       function gf_Run()
+       {
+             var l = Math.floor(200);
+             arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+       }
+      function  g_Run()
+      {
+        var l = Math.floor(500);
+        arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+      }
+    function Run()
+    { var l = Math.floor(1000);
+        arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+    }
+    function un()
+    {
+        var l = Math.floor(5000);
+        arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+    }
+    function n()
+    { var l = Math.floor(10000);
+        arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+
+    }
+    function fg_Run()
+    {
+        var l = Math.floor(25000);
+        arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+    }
+    function gfgRun()
+    { var l = Math.floor(50000);
+        arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+    }
+      function gfg_R()
+      {
+        var l = Math.floor(100000);
+        arr =  Array.from({length: l}, ( ) => Math.fround(-200+Math.random()* (200 + 200)).toFixed(2));
+            el_down.innerHTML=arr;
+      }
+
+      function find()
+        {
+
+            var first_positiv=0;
+            for (let i = 0; i < arr.length; i++)
+            {
+                if(arr[i]>0)
+                {
+                    first_positiv= arr[i];
+                    break;
+                }
+            }
+            el_down.innerHTML=first_positiv;
+        }
+
+        function test_find()
+        {
+            test(find);
+        }
+
+        function test(function_to_test)
+        {
+            var start = window.performance.now();
+
+            for( let i = 0; i < 100; i++)
+            {
+                function_to_test();
+            }
+        
+            var end = window.performance.now();
+            var time =(end - start)/10;
+            alert(`Execution time: ${time} ms`);
+            
+        }
+
+    </script>
+</body>
+</html>
+ 

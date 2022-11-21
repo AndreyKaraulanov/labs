@@ -71,7 +71,7 @@ int main() {
     const char koi8_r[] = "ИЖСЙЕМЦЬЫГУЗТШБЮОПНКДФЩЪВЯЛХРЭАЧёижсйемцьыгузтшбюопнкдфщъвялхрэачЁ";
     
     
-
+    
     short int number;
     while (true) {
         system("cls");
@@ -103,7 +103,7 @@ int main() {
                 break;
             case 2:
                 system("cls");
-                cout << "Ваша новая кодировкe: \nUTF8 - 1 \nWindows 1251 - 2 \nKOI8-R - 3 \nНазад - 0 \n---> "; cin >> number;
+                cout << "Ваша новая кодировкa: \nUTF8 - 1 \nWindows 1251 - 2 \nKOI8-R - 3 \nНазад - 0 \n---> "; cin >> number;
                 switch (number)
                 {
                 case 1:

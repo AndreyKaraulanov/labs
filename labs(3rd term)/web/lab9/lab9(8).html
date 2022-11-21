@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lab9(8)</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+	.find{
+        color: red;
+    }
+    :root{
+    --circlecolor: #4B0082;
+    --textcolor: #7B68EE;
+    --bg: #DDA0DD;
+}
+body{
+    background-color: var(--bg);
+}
+.circle{
+    background-color: var(--circlecolor);
+    line-height: 100px;
+    width: 100px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    color: var(--textcolor);
+    text-align: center;
+    position: relative;
+    left: 0;
+
+
+}
+
+#e3{
+  right: 0px;  
+}
+#e1{
+    bottom: 0px;
+}
+#e2{
+    bottom: 0px;
+    right: 0px;
+}
+
+.buttons {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #FFFF00;
+    padding: 10px;
+    }
+    </style>
+</head>
+<body>
+	<div class="circle" id="sq"> Блок </div>
+</body>
+<script>
+    let square = document.getElementById("sq");
+let coord = [[0, 0], [0, 50], [50, 50], [50, 0]]
+let pos = 0;
+let curr = [0, 0]
+nIntervId = setInterval(() => {
+    console.log(curr);
+    switch (true) {
+        case curr[1] < 50 && curr[0] == 0:
+            square.style.marginTop = curr[1] + 1 + "%";
+            curr[1]++
+            break;
+        case curr[0] < 50 && curr[1] != 0:
+            square.style.marginLeft = curr[0] + 1 + "%";
+            curr[0]++
+            break;
+        case curr[1] > 0:
+            square.style.marginTop = curr[1] - 1 + "%";
+            curr[1]--
+            break;
+        case curr[0] > 0:
+            square.style.marginLeft = curr[0] - 1 + "%";
+            curr[0]--
+            break;
+
+    }
+
+}, 20);
+</script>
+</script>
+</html>

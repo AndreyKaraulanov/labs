@@ -28,6 +28,8 @@ private:
     NodePtr root;//корінці
     NodePtr TNULL;//листки
 
+    
+
     // initializes the nodes with appropirate values
     // all the pointers are set to point to the null pointer
     void initializeNULLNode(NodePtr node, NodePtr parent) {
@@ -170,11 +172,11 @@ private:
         NodePtr z = TNULL;
         NodePtr x, y;
         while (node != TNULL) {
-            if (node->data.IDpass == key) {
+            if (node->data.age == key) {
                 z = node;
             }
 
-            if (node->data.IDpass <= key) {
+            if (node->data.age <= key) {
                 node = node->right;
             }
             else {
@@ -519,20 +521,29 @@ public:
         }
     }
 
+    void del(NodePtr node) {
+        if (node != NULL) {
+            del(node->left);
+            del(node->right);
+            delete node;
+            node = NULL;
+        }
+    }
 };
+
+
 
 int main() {
 
     RBTree bst;
     ifstream fin;
 
-    string FullName = "Person"; int IDpass;
-    float age;
+    string FullName = "Person"; int IDpass, age;
     int number;
     do {
 
         cout << "1 - Створити чевоно-чорне дерево вводом через консоль" << endl;
-        cout << "2 - Записати червоно-чорне дерево з файлу" << endl;
+        cout << "2 - Загрузити червоно-чорне дерево з файлу" << endl;
         cout << "3 - Роздрукувати червоно-чорне дерево в консоль" << endl;
         cout << "4 - Додати елемент" << endl;
         cout << "5 - Видалити елемент з дерева (за віком)" << endl;
@@ -550,7 +561,7 @@ int main() {
             Data l;
             for (int i = 0; i < c; i++) {
                 FullName += to_string(rand() % 10);
-                IDpass = rand()%2022;
+                IDpass = rand();
                 age = rand() % 60 + 20;
                 l.FullName = FullName; l.IDpass = IDpass; l.age = age;
                 bst.insert(l.IDpass, l.FullName, l.age);
@@ -602,8 +613,8 @@ int main() {
             break; }
         case 5: {
             cout << "Уведіть елемент, який хочете видалити, для цього введіть вік: " << endl;
-            cin >> IDpass;
-            bst.deleteNode(IDpass);
+            cin >> age;
+            bst.deleteNode(age);
             break; }
         case 6: {bst.wtite_trea_in_file();
             break; }
@@ -612,6 +623,7 @@ int main() {
             break;
         }
     } while (number != 0);
+    
     system("cls");
     return 0;
 }

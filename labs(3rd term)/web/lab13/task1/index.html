@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        td{
+            padding: 5px 10px;
+            border: 1px solid black;
+            font-family: Montserrat;
+        }
+    </style>
+</head>
+<body>
+    <form id="tableType">
+        <label>            
+            <input type="radio" name="typeT" value="formular">
+            Формуляр
+        </label>
+        <br>
+        <label>            
+            <input type="radio" name="typeT" value="table">
+            Таблиця
+        </label>
+        <br>
+        <select class="selectBox">
+            <option disabled selected>Оберіть таблицю</option>
+            <option value="Service">Сервіс</option>
+            <option value="Customer">Замовник</option>
+            <option value="Contract">Договір</option>
+        </select>
+    </form>
+    <button class="showBtn">Show</button>
+    <div>
+        <table >
+            <thead class="tableHead">
+                
+            </thead>
+            <tbody class="rezultTable">
+
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
