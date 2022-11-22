@@ -1,11 +1,11 @@
 #include "lab.hpp"
 
-string dataNames[32] = { "Ethan", "Josh", "Sam", "Tom", "Bruse", "Michael", "Diego", "Adrian", "Brian", "Carl", "Caleb", "Charles", "Daniel", "Derek", "Elliot", "Kuel",
-                           "Sophia", "Amelia", "Ella", "Chloe", "Penelope", "Emma", "Ava", "Isabella", "Elizabath", "Ginna", "Layla", "Zoey", "Olivia", "Sarah", "Rachel", "Emily" };
-string dataSecondNames[50] = { "Smith", "Johnson", "Williams", "Jones", "Brown","Davis","Miller", "Wilson","Moore","Taylor", "Anderson","Thomas","Jackson", "White","Harris","Martin", "Thompson","Garcia","Martinez", "Robinson","Clark","Rodriguez", "Lewis","Lee","Walker", "Hall","Allen","Young", "Hernandez","King","Wright", "Lopez","Hill","Scott", "Green","Adams","Baker",
+string dataNames[32] = { "Adrii", "Denis", "Serhii", "Volodymyr", "Ivan", "Mykhailo", "Oleh", "Artem", "Vladislav", "Oleksandr", "Hleb", "Anatoliy", "Daniel", "Eduard", "Semen", "Olexiy",
+                           "Sophia", "Oleksandra", "Miroslava", "Alisa", "Anastasiya", "Emma", "Natalia", "Tetiana", "Elizaveta", "Anna", "Olha", "Zoey", "Valeria", "Vladislava", "Katerina", "Kristina" };
+string dataSecondNames[50] = { "Shevchenko", "Haumenko", "Haumko", "Ostapchuk", "Melnik","Melnichuk","Motruk", "Lysnak","Parkhomenko","Sydorchuk", "Sydorenko","Bandera","Pobedrya", "Tkachuk","Fedorko","Sarkisyan", "Podolyak","Tymochuk","Melnichenko", "Ivanichenko","Dashkevich","Syniy", "Lubchenko","Petlura","Kyiko", "Moseychuk","Grichanenko","Pylypenko", "Tkachenko","Saenko","Seleznyuk", "Sayko","Horbach","Kutsak", "Green","Adams","Baker",
     "Gonzalez", "Nelson","Carter","Mitchell", "Perez","Roberts","Turner", "Phillips","Campbell","Parker", "Evans","Edwards","Collins" };
-string dataSubjects[11] = { "Arts", "Bilogy", "History", "Music", "Math", "Chemistry", "Geography", "PE", "Economics", "English", "Polska" };
-
+string dataSubjects[7] = { "shizophrenia", "sklerosis", "cystitis", "stroke", "appendecitis", "parkinson", "gangrene"};
+string dataadress[17] = {"Khreshatyk-21", "Sverstuka-8", "Antonovicha-39", "Banderi-23", "Petluri-77", "Perova-10", "Vaylkivska-33", "Asenalna-81", "Kibalchicha-99", "Zakrevskoho-12", "Nikitina-27", "Kurnatovskoho-7", "Enthusiastiv-3", "Shamo-87", "Reheneratorna-5", "Berezneba-2", "Shevchenko-90"};
 
 // main class
 
@@ -13,10 +13,11 @@ string dataSubjects[11] = { "Arts", "Bilogy", "History", "Music", "Math", "Chemi
 void Main::main()
 {
     short int count, button, checker;
-    Student* head = NULL, * tail = NULL;
+    string check;
+    Patient* head = NULL, * tail = NULL;
 
     while (true) {
-        cout << "Work with data - 1 \nClear data - 2 \nExit - 0 \n-->"; cin >> button;
+        cout << "Створити список - 1 \nНазад - 0 \n-->"; cin >> button;
         if (cin.fail()) {
             system("cls");
             cin.clear();
@@ -30,7 +31,7 @@ void Main::main()
             while (button != 0) {
                 system("cls");
                 if (head == NULL) {
-                    cout << "How long you list could be? \n---> "; cin >> count;
+                    cout << "На скільки елементів ви бажаєте створити список? \n---> "; cin >> count;
                     if (cin.fail()) {
                         system("cls");
                         cin.clear();
@@ -45,12 +46,10 @@ void Main::main()
                 table_header();
                 PrintList(head);
 
-                cout << "Find students with unsatisfactory grades - 1\n" <<
-                    "Find students by grades - 2\n" <<
-                    "Find students whith highest grades and almost satisfactory - 3\n" <<
-                    "Delete one data - 4\n" <<
-                    "Add new data - 5\n" <<
-                    "Sort - 6\n" <<
+                cout << "Шукати паціентів за номером картки - 1\n" <<
+                    "Шукати паціентів за діагнозом - 2\n" <<
+                    "Видалити один елемент- 3\n" <<
+                    "Додати елемент - 4\n" <<
                     "Back - 0\n" <<
                     "-->";
                 cin >> button;
@@ -67,31 +66,26 @@ void Main::main()
                 {
                 case 1:
                     system("cls");
-                    unsatisfactory(&head);
+                    short int check1;
+                    short int check2;
+                    cout << "Введіть перший номер картки для інтервалу: " << endl;
+                    cin >> check1;
+                    cout << "Введіть другий номер картки для інтервал: " << endl;
+                    cin >> check2;
+                    byNum(&head, check1, check2);
                     system("pause");
                     break;
                 case 2:
                     system("cls");
-                    cout << "Input grade limit \n-->"; cin >> checker;
-                    if (cin.fail()) {
-                        system("cls");
-                        cin.clear();
-                        cin.ignore(32767, '\n');
-                        cout << " \t\t\tIncorrect input! ERROR! " << endl;
-                        system("pause");
-                        continue;
-                    }
-                    byGrade(&head, checker);
+                        cout << "Введіть бажаний діагноз:" << endl;
+                        cin >> check;
+                    byDiagnosis(&head, check);
                     system("pause");
                     break;
+               
                 case 3:
                     system("cls");
-                    hightesGradeandHalf(&head);
-                    system("pause");
-                    break;
-                case 4:
-                    system("cls");
-                    cout << "Input number data \n-->"; cin >> checker;
+                    cout << "Введіть номер едементу \n-->"; cin >> checker;
                     if (cin.fail()) {
                         system("cls");
                         cin.clear();
@@ -102,9 +96,9 @@ void Main::main()
                     }
                     DeleteInList(&head, &tail, checker);
                     break;
-                case 5:
+                case 4:
                     system("cls");
-                    cout << "Input number data \n-->"; cin >> checker;
+                    cout << "Введіть номер елементу \n-->"; cin >> checker;
                     if (cin.fail()) {
                         system("cls");
                         cin.clear();
@@ -114,38 +108,6 @@ void Main::main()
                         continue;
                     }
                     Insert(&head, &tail, checker);
-                    break;
-                case 6:
-                    system("cls");
-                    cout << "Sort by name - 1 \nSort by grades - 2 \nBack - 0 \n-->"; cin >> button;
-                    if (cin.fail()) {
-                        system("cls");
-                        cin.clear();
-                        cin.ignore(32767, '\n');
-                        cout << " \t\t\tIncorrect input! ERROR! " << endl;
-                        system("pause");
-                        continue;
-                    }
-                    switch (button)
-                    {
-                    case 1:
-                        Sort(&head, button);
-                        table_header();
-                        PrintList(head);
-                        system("pause");
-                        break;
-                    case 2:
-                        Sort(&head, button);
-                        table_header();
-                        PrintList(head);
-                        system("pause");
-                        break;
-                    case 0:
-                        system("cls");
-                        break;
-                    default:
-                        break;
-                    }
                     break;
                 case 0:
                     system("cls");
@@ -175,63 +137,50 @@ void Main::main()
 }
 
 
-//Student::Student()
-//{
-//    this->FullName = "User invalid";
-//    this->address = "None";
-//    this->grade = -1;
-//
-//}
-
-
-
-//set methods
-void Student::setterAll(string FullName, string address, short int grade, string subject)
+void Patient::setterAll(string FullName, string address, short int num, string diagnosis)
 {
     this->FullName = FullName;
     this->address = address;
-    this->grade.setterGrade(grade);
-    this->grade.setterSubject(subject);
+    this->num.setterNum(num);
+    this->num.setterDiagnosis(diagnosis);
 
 }
 
 
-// get methods
-string Student::getterFullname()  { return this->FullName; }
 
-string Student::getterAddress()  { return this->address; }
+string Patient::getterFullname()  { return this->FullName; }
 
-short int Student::getterGrade() { return grade.getterGrade(); }
+string Patient::getterAddress()  { return this->address; }
 
-string Student::getterSubject(){ return grade.getterSubject();}
+short int Patient::getterNum() { return num.getterNum(); }
+
+string Patient::getterDiagnosis(){ return num.getterDiagnosis();}
 
 
-// show method
-void Student::show()
+
+void Patient::show()
 {
-    if (this->grade.getterGrade() != -1)
-    cout << "|" << setw(22) << this->FullName << setw(4) << "|" << setw(32) << this->address << setw(4) << "|" << setw(4) << this->grade.getterGrade() << setw(4) << "|" << setw(12) << this->grade.getterSubject() << setw(4) << "|" << setw(18) << this->departament.getterDepName() << setw(4) << "|" << setw(6) << boolalpha << this->departament.getterfullDay() << setw(6) << "|";
+    if (this->num.getterNum() != -1)
+    cout << "|" << setw(22) << this->FullName << setw(4) << "|" << setw(32) << this->address << setw(4) << "|" << setw(4) << this->num.getterNum() << setw(10) << "|" << setw(12) << this->num.getterDiagnosis() << setw(4) << "|" << setw(18) << this->departament.getterDepName() << setw(4) << "|" << setw(2) << boolalpha << this->departament.getterfullDay() << setw(7) << "|";
     else
-        cout << "|" << setw(22) << "USER INVALID" << setw(4) << "|" << setw(32) << "ERROR" << setw(4) << "|" << setw(4) << "404" << setw(4) << "|" << setw(12) << "404" << setw(4) << "|" << setw(18) << "404" << setw(4) << "|" << setw(6) << boolalpha << "ERROR" << setw(6) << "|";
-    cout << "\n -----------------------------------------------------------------------------------------------------------------------\n";
+        cout << "|" << setw(22) << "USER INVALID" << setw(4) << "|" << setw(32) << "ERROR" << setw(4) << "|" << setw(4) << "404" << setw(11) << "|" << setw(12) << "404" << setw(4) << "|" << setw(18) << "404" << setw(4) << "|" << setw(6) << boolalpha << "ERROR" << setw(6) << "|";
+    cout << "\n ------------------------------------------------------------------------------------------------------------------------------\n";
 }
 
-///////////////////////////////////////////////////////////////////////
-/////////////////////  Main tasks  ///////////////////////////////////
-/////////////////////////////////////////////////////////////////////
 
-void Main::unsatisfactory(Student** head)
+
+void Main::byNum(Patient** head, short int check1, short int check2)
 {
     int count = 0;
-    Student* current = *head;
-    Student* unsatisfactoryGrade = new Student[MAXSIZE];
+    Patient* current = *head;
+    Patient* unsatisfactoryGrade = new Patient[MAXSIZE];
 
 
     if (DcheckNULL((*head)) == 0) { return; }
     else {
         while (current) {
-            if (current->getterGrade() < 60) {
-                unsatisfactoryGrade[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterGrade(), current->getterSubject());
+            if (check1 < current->getterNum() && check2 > current->getterNum()) {
+                unsatisfactoryGrade[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterNum(), current->getterDiagnosis());
                 count++;
             }
             current = current->next;
@@ -239,31 +188,29 @@ void Main::unsatisfactory(Student** head)
     }
 
     if (count != 0) {
-        cout << "\t Students with unsatisfactory grades: " << count << endl;
         table_header();
         for (size_t i = 0; i < count; i++) {
             unsatisfactoryGrade[i].show();
         }
     }
     else
-        cout << "\tStudents haven`t been found!\n";
+        cout << "\tТаких паціентів не знайдено!!\n";
 
 
     delete[] unsatisfactoryGrade; unsatisfactoryGrade = NULL;
 }
 
-void Main::byGrade(Student** head, short int setted)
+void Main::byDiagnosis(Patient** head, string check)
 {
     int count = 0;
-    Student* current = *head;
-    Student* byGrade = new Student[MAXSIZE];
-
-
+    Patient* current = *head;
+    Patient* byDiagnosis = new Patient[MAXSIZE];
+    
     if (DcheckNULL((*head)) == 0) { return; }
     else {
         while (current) {
-            if (current->getterGrade() > setted) {
-                byGrade[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterGrade(), current->getterSubject());
+            if (current->getterDiagnosis()==check) {
+                byDiagnosis[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterNum(), current->getterDiagnosis());
                 count++;
             }
             current = current->next;
@@ -271,92 +218,22 @@ void Main::byGrade(Student** head, short int setted)
     }
 
     if (count != 0) {
-        cout << "\t Students with grades higher " << setted << ": " << count << endl;
+        
         table_header();
         for (size_t i = 0; i < count; i++) {
-            byGrade[i].show();
+            byDiagnosis[i].show();
         }
     }
     else
-        cout << "\tStudents haven`t been found!\n";
+        cout << "\t Таких паціентів не знайдено!\n";
 
 
-    delete[] byGrade; byGrade = NULL;
-}
-
-
-void Main::hightesGradeandHalf(Student** head)
-{
-    int count = 0;
-    Student* current = *head;
-    Student* byGrade = new Student[MAXSIZE];
-
-
-    if (DcheckNULL((*head)) == 0) { return; }
-    else {
-        while (current) {
-            if (current->getterGrade() > 89 or (current->getterGrade() > 34 and current->getterGrade() < 60)) {
-                byGrade[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterGrade(), current->getterSubject());
-                count++;
-            }
-            current = current->next;
-        }
-    }
-
-
-    if (count != 0) {
-
-        cout << "\tStudents " << ": " << count << endl;
-        table_header();
-        for (size_t i = 0; i < count; i++) {
-            byGrade[i].show();
-        }
-
-        if (count != 1) {
-            short int choose = -1;
-            Student* chosen = new Student[count];
-            short int flag = 0;
-            short index = 0;
-            current = *head;
-            while (choose != 0 and flag != count) {
-                cout << "Choose the studenet by number (0-stop) --> "; cin >> choose;
-                if (choose > count) {
-                    cout << "\tFalse input, try again!\n";
-                    continue;
-                }
-                if (choose != 0) { flag++; };
-                for (size_t i = 0; i < choose; i++) {
-                    if (i == choose - 1) {
-                        chosen[index] = byGrade[choose - 1];
-                        index++;
-                    }
-                    current = current->next;
-                }
-            }
-
-            if (flag != 0) {
-                table_header();
-                for (size_t i = 0; i < flag; i++) {
-                    chosen[i].show();
-                }
-            }
-            else
-                cout << "\tStudents haven`t been chosen!\n";
-
-            delete[] chosen; chosen = NULL;
-        }
-        else {
-            cout << "You shouldn`t to choose the one student!\n";
-        }
-
-
-    }
-    else
-        cout << "\tStudents haven`t been found!\n";
-
-    delete[] byGrade; byGrade = NULL;
+    delete[] byDiagnosis; byDiagnosis = NULL;
 
 }
+
+
+
 
 
 
@@ -365,38 +242,32 @@ void Main::hightesGradeandHalf(Student** head)
 
 void Main::table_header()
 {
-    cout << "\n -----------------------------------------------------------------------------------------------------------------------\n";
-    cout << "|" << setw(17) << "Full Name" << setw(9) << "|" << setw(23) << "Email" << setw(13) << "|" << setw(6) << "Grade" << setw(2) << "|" << setw(12) << "Subject" << setw(4) << "|" << setw(18) << "Department" << setw(4) << "|" << setw(6) << "FTS" << setw(6) << "|";
-    cout << "\n -----------------------------------------------------------------------------------------------------------------------\n";
+    cout << "\n ------------------------------------------------------------------------------------------------------------------------------\n";
+    cout << "|" << setw(17) << "Full Name" << setw(9) << "|" << setw(23) << "Adress" << setw(13) << "|" << setw(6) << "Number" << setw(9) << "|" << setw(12) << "Diagnosis" << setw(4) << "|" << setw(18) << "Department" << setw(4) << "|" << setw(6) << "FTP" << setw(6) << "|";
+    cout << "\n ------------------------------------------------------------------------------------------------------------------------------\n";
 }
 
 
 
 
 
-
-///////////////////////////////////////////////////////////////////////
-///////////////////// Doubly Node  ///////////////////////////////////
-/////////////////////////////////////////////////////////////////////
-
-
-void Main::CreateList(short int count, Student** head, Student* tail)
+void Main::CreateList(short int count, Patient** head, Patient* tail)
 {
     string FullName, buffer, address, subject; short int grade;
     
     if (count > 0) {
-        (*head) = new Student;
+        (*head) = new Patient;
         FullName = dataNames[rand() % 32];
         address += FullName;
         FullName += " ";
         buffer = dataSecondNames[rand() % 32];
         FullName += buffer;
-        address += buffer += "@gmail.com";
+        address = dataadress[rand() % 17];
         if (rand() % 2)
-            grade = rand() % 101;
+            grade = rand() % 1000 + 1000000;
         else
             grade = -1;
-        subject = dataSubjects[rand() % 11];
+        subject = dataSubjects[rand() % 7];
         (*head)->setterAll(FullName, address, grade, subject);
         (*head)->prev = tail;
         (*head)->next = NULL;
@@ -407,7 +278,7 @@ void Main::CreateList(short int count, Student** head, Student* tail)
     size = count;
 }
 
-void Main::PrintList(Student* head) {
+void Main::PrintList(Patient* head) {
     if (head != NULL) {
         head->show();
         PrintList(head->next);
@@ -415,9 +286,9 @@ void Main::PrintList(Student* head) {
     else cout << endl << endl;
 }
 
-void Main::Insert(Student** head, Student** tail, int pos) {
+void Main::Insert(Patient** head, Patient** tail, int pos) {
 
-    Student* temp = new Student;
+    Patient* temp = new Patient;
 
     if (pos == 0) {
         temp->next = *head;
@@ -426,7 +297,7 @@ void Main::Insert(Student** head, Student** tail, int pos) {
         temp->prev = NULL;
     }
     else {
-        Student* current = *head;
+        Patient* current = *head;
         for (size_t i = 0; i < pos - 1; i++)
             current = current->next;
         if (current->next == NULL) {
@@ -448,9 +319,9 @@ void Main::Insert(Student** head, Student** tail, int pos) {
     FullName += " ";
     buffer = dataSecondNames[rand() % 32];
     FullName += buffer;
-    address += buffer += "@gmail.com";
+    address = dataadress[rand() % 17];
     if (rand() % 2)
-        grade = rand() % 101;
+        grade = rand() % 1000 + 1000000;
     else
         grade = -1;
     subject = dataSubjects[rand() % 11];
@@ -459,9 +330,9 @@ void Main::Insert(Student** head, Student** tail, int pos) {
 }
 
 
-void Main::DeleteInList(Student** head, Student** tail, int pos) {
+void Main::DeleteInList(Patient** head, Patient** tail, int pos) {
 
-    Student* current = *head;
+    Patient* current = *head;
 
     if (pos == 0) {
         *head = (*head)->next;
@@ -471,7 +342,7 @@ void Main::DeleteInList(Student** head, Student** tail, int pos) {
     else {
         for (size_t i = 0; i < pos - 1; i++)
             current = current->next;
-        Student* temp = current->next;
+        Patient* temp = current->next;
         if (temp->next == NULL) {
             current->next = NULL;
             *tail = current;
@@ -485,7 +356,7 @@ void Main::DeleteInList(Student** head, Student** tail, int pos) {
 }
 
 
-bool Main::DcheckNULL(Student* head) { // cheking on empty
+bool Main::DcheckNULL(Patient* head) {
     if (head == NULL) {
         cout << "List is empty." << endl;
         return 0;
@@ -494,8 +365,8 @@ bool Main::DcheckNULL(Student* head) { // cheking on empty
 }
 
 
-void Main::FreeList(Student** head) { // clean list
-    Student* current = *head;
+void Main::FreeList(Patient** head) { 
+    Patient* current = *head;
     while (current) {
         *head = (*head)->next;
         free(current);
@@ -504,55 +375,3 @@ void Main::FreeList(Student** head) { // clean list
 }
 
 
-void Sort(Student** head, short int set) {
-    Student* left = *head;
-    Student* right = (*head)->next;
-    Student* temp = new Student;
-    // preset switch
-    switch (set) {
-
-    case 1: // sort by name
-        while (left->next) {
-
-            while (right) {
-
-                if ((left->FullName.compare(right->FullName) > 0)) {
-
-                    temp->FullName = left->FullName;
-                    left->FullName = right->FullName;
-                    right->FullName = temp->FullName;
-
-                }
-                right = right->next;
-
-            }
-
-            left = left->next;
-            right = left->next;
-        }
-        break;
-    case 2: // sort by grades
-        while (left->next) {
-
-            while (right) {
-
-                if (right->grade.getterGrade() > left->grade.getterGrade()) {
-
-                    temp->grade.setterGrade(right->grade.getterGrade());
-                    right->grade.setterGrade(left->grade.getterGrade());
-                    left->grade = temp->grade;
-
-                }
-                right = right->next;
-
-            }
-
-            left = left->next;
-            right = left->next;
-        }
-        break;
-    default:
-        //system("cls");
-        break;
-    }
-}

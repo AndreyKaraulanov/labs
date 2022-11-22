@@ -2,10 +2,11 @@
 
 string dataNames[32] = { "Adrii", "Denis", "Serhii", "Volodymyr", "Ivan", "Mykhailo", "Oleh", "Artem", "Vladislav", "Oleksandr", "Hleb", "Anatoliy", "Daniel", "Eduard", "Semen", "Olexiy",
                            "Sophia", "Oleksandra", "Miroslava", "Alisa", "Anastasiya", "Emma", "Natalia", "Tetiana", "Elizaveta", "Anna", "Olha", "Zoey", "Valeria", "Vladislava", "Katerina", "Kristina" };
-string dataSecondNames[50] = { "Shevchenko", "Haumenko", "Haumko", "Ostapchuk", "Melnik","Melnichuk","Motruk", "Lysnak","Parkhomenko","Sydorchuk", "Sydorenko","Bandera","Pobedrya", "Tkachuk","Fedorko","Sarkisyan", "Podolyak","Tymochuk","Melnichenko", "Ivanichenko","Dashkevich","Syniy", "Lubchenko","Petlura","Kyiko", "Moseychuk","Grichanenko","Pylypenko", "Tkachenko","Saenko","Seleznyuk", "Sayko","Horbach","Kutsak", "Green","Adams","Baker",
+string dataSecondNames[50] = { "Shevchenko", "Haumenko", "Haumko", "Ostapchuk", "Melnik","Melnichuk","Motruk", "Lysnak","Parkhomenko","Sydorchuk", "Sydorenko","Bandera","Pobedrya", "Tkachuk","Fedorko","Sarkisyan", "Podolyak","Tymochuk","Melnichenko", "Ivanichenko","Dashkevich","Synko", "Lubchenko","Petlura","Kyiko", "Moseychuk","Grichanenko","Pylypenko", "Tkachenko","Saenko","Seleznyuk", "Sayko","Horbach","Kutsak", "Green","Adams","Baker",
     "Gonzalez", "Nelson","Carter","Mitchell", "Perez","Roberts","Turner", "Phillips","Campbell","Parker", "Evans","Edwards","Collins" };
-string datadiagnosis[7] = {"shizophrenia", "sklerosis", "cystitis", "stroke", "appendecitis", "parkinson", "gangrene"};
+string dataSubjects[7] = { "shizophrenia", "sklerosis", "cystitis", "stroke", "appendecitis", "parkinson", "gangrene"};
 string dataadress[17] = {"Khreshatyk-21", "Sverstuka-8", "Antonovicha-39", "Banderi-23", "Petluri-77", "Perova-10", "Vaylkivska-33", "Asenalna-81", "Kibalchicha-99", "Zakrevskoho-12", "Nikitina-27", "Kurnatovskoho-7", "Enthusiastiv-3", "Shamo-87", "Reheneratorna-5", "Berezneba-2", "Shevchenko-90"};
+
 // main class
 
 
@@ -16,28 +17,16 @@ void Main::main()
     Patient* head = NULL, * tail = NULL;
 
     while (true) {
-        cout << "Нвтисніть, щоб створити - 1\nВийти - 0 \n-->"; cin >> button;
-        if (cin.fail()) {
-            //system("cls");
-            cin.clear();
-            cin.ignore(32767, '\n');
-            cout << " \t\t\tIncorrect input! ERROR! " << endl;
-            continue;
-        }
+        cout << "Створити список - 1 \nНазад - 0 \n-->"; cin >> button;
+        
         switch (button)
         {
         case 1:
             while (button != 0) {
                 //system("cls");
                 if (head == NULL) {
-                    cout << "На скільки елементів ви хотите створити список? \n---> "; cin >> count;
-                    if (cin.fail()) {
-                        //system("cls");
-                        cin.clear();
-                        cin.ignore(32767, '\n');
-                        cout << " \t\t\tIncorrect input! ERROR! " << endl;
-                        continue;
-                    }
+                    cout << "На скільки елементів ви бажаєте створити список? \n---> "; cin >> count;
+                    
                     CreateList(count, &head, tail);
                     //system("cls");
                 }
@@ -45,11 +34,11 @@ void Main::main()
                 table_header();
                 PrintList(head);
 
-                cout <<
-                    "Пошук раціента по діагнозу - 1\n" <<
-                    "Видалити одну строку - 2\n" <<
-                    "Додоати нову строку - 3\n" <<
-                    "Назад - 0\n" <<
+                cout << "Шукати паціентів за номером картки - 1\n" <<
+                    "Шукати паціентів за діагнозом - 2\n" <<
+                    "Видалити один елемент- 3\n" <<
+                    "Додати елемент - 4\n" <<
+                    "Back - 0\n" <<
                     "-->";
                 cin >> button;
                 if (cin.fail()) {
@@ -65,34 +54,45 @@ void Main::main()
                 {
                 case 1:
                     //system("cls");
-                    cout << "Введіть діагноз, який вам потрібен: " << endl;
-                    cin >> check;
-                    
-                    byDiagnosis(&head, check);
+                    short int check1;
+                    short int check2;
+                    cout << "Введіть перший номер картки для інтервалу: " << endl;
+                    cin >> check1;
+                    cout << "Введіть другий номер картки для інтервал: " << endl;
+                    cin >> check2;
+                    byNum(&head, check1, check2);
                     //system("pause");
                     break;
                 case 2:
-                    system("cls");
-                    cout << "Введіть номер строки \n-->"; cin >> checker;
+                    //system("cls");
+                        cout << "Введіть бажаний діагноз:" << endl;
+                        cin >> check;
+                    byDiagnosis(&head, check);
+                    //system("pause");
+                    break;
+               
+                case 3:
+                    //system("cls");
+                    cout << "Введіть номер едементу \n-->"; cin >> checker;
                     if (cin.fail()) {
                         system("cls");
                         cin.clear();
                         cin.ignore(32767, '\n');
                         cout << " \t\t\tIncorrect input! ERROR! " << endl;
-                        system("pause");
+                        //system("pause");
                         continue;
                     }
                     DeleteInList(&head, &tail, checker);
                     break;
-                case 3:
-                    system("cls");
-                    cout << "Введіть номер строки \n-->"; cin >> checker;
+                case 4:
+                    //system("cls");
+                    cout << "Введіть номер елементу \n-->"; cin >> checker;
                     if (cin.fail()) {
-                        system("cls");
+                        //system("cls");
                         cin.clear();
                         cin.ignore(32767, '\n');
                         cout << " \t\t\tIncorrect input! ERROR! " << endl;
-                        system("pause");
+                        //system("pause");
                         continue;
                     }
                     Insert(&head, &tail, checker);
@@ -107,12 +107,12 @@ void Main::main()
             }
             break;
         case 2:
-            system("cls");
+            //system("cls");
             if (DcheckNULL(head) != 0)
                 FreeList(&head);
             break;
         case 0:
-            system("cls");
+            //system("cls");
             FreeList(&head);
             exit(0);
             break;
@@ -125,12 +125,12 @@ void Main::main()
 }
 
 
-
-void Patient::setterAll(string FullName,  string address, string diagnosis)
+void Patient::setterAll(string FullName, string address, short int num, string diagnosis)
 {
     this->FullName = FullName;
     this->address = address;
-    this->diagnosis.setter(diagnosis);
+    this->num.setterNum(num);
+    this->num.setterDiagnosis(diagnosis);
 
 }
 
@@ -140,16 +140,85 @@ string Patient::getterFullname()  { return this->FullName; }
 
 string Patient::getterAddress()  { return this->address; }
 
-string Patient::getterDiagnosis()  { return diagnosis.getterDiagnosis(); }
+short int Patient::getterNum() { return num.getterNum(); }
+
+string Patient::getterDiagnosis(){ return num.getterDiagnosis();}
+
 
 
 void Patient::show()
 {
-    cout << "|" << setw(22) << this->FullName << setw(4) << "|" << setw(32) << this->address << setw(4) << "|" << setw(18) << this->diagnosis.getterDiagnosis() << setw(4) << "|";
-    cout << "\n ------------------------------------------------------------------------------------\n";
+    if (this->num.getterNum() != -1)
+    cout << "|" << setw(22) << this->FullName << setw(4) << "|" << setw(32) << this->address << setw(4) << "|" << setw(4) << this->num.getterNum() << setw(10) << "|" << setw(12) << this->num.getterDiagnosis() << setw(4) << "|" << setw(18) << this->departament.getterDepName() << setw(4) << "|" << setw(2) << boolalpha << this->departament.getterfullDay() << setw(7) << "|";
+    else
+        cout << "|" << setw(22) << "--NONE--" << setw(4) << "|" << setw(32) << "--NONE--" << setw(4) << "|" << setw(2) << "--NONE--" << setw(7) << "|" << setw(12) << "--NONE--" << setw(4) << "|" << setw(18) << "--NONE--" << setw(4) << "|" << setw(6) << boolalpha << "--NONE--" << setw(4) << "|";
+    cout << "\n ------------------------------------------------------------------------------------------------------------------------------\n";
 }
 
 
+
+void Main::byNum(Patient** head, short int check1, short int check2)
+{
+    int count = 0;
+    Patient* current = *head;
+    Patient* unsatisfactoryGrade = new Patient[MAXSIZE];
+
+
+    if (DcheckNULL((*head)) == 0) { return; }
+    else {
+        while (current) {
+            if (check1 < current->getterNum() && check2 > current->getterNum()) {
+                unsatisfactoryGrade[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterNum(), current->getterDiagnosis());
+                count++;
+            }
+            current = current->next;
+        }
+    }
+
+    if (count != 0) {
+        table_header();
+        for (size_t i = 0; i < count; i++) {
+            unsatisfactoryGrade[i].show();
+        }
+    }
+    else
+        cout << "\tТаких паціентів не знайдено!!\n";
+
+
+    delete[] unsatisfactoryGrade; unsatisfactoryGrade = NULL;
+}
+
+void Main::byDiagnosis(Patient** head, string check)
+{
+    int count = 0;
+    Patient* current = *head;
+    Patient* byDiagnosis = new Patient[MAXSIZE];
+    
+    if (DcheckNULL((*head)) == 0) { return; }
+    else {
+        while (current) {
+            if (current->getterDiagnosis()==check) {
+                byDiagnosis[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterNum(), current->getterDiagnosis());
+                count++;
+            }
+            current = current->next;
+        }
+    }
+
+    if (count != 0) {
+        
+        table_header();
+        for (size_t i = 0; i < count; i++) {
+            byDiagnosis[i].show();
+        }
+    }
+    else
+        cout << "\t Таких паціентів не знайдено!\n";
+
+
+    delete[] byDiagnosis; byDiagnosis = NULL;
+
+}
 
 
 
@@ -161,13 +230,10 @@ void Patient::show()
 
 void Main::table_header()
 {
-    cout << "\n ------------------------------------------------------------------------------------\n";
-    cout << "|" << setw(17) << "Full Name" << setw(9) << "|" << setw(23) << "Adress" << setw(13) << "|" << setw(18) << "Diagnosis" << setw(4) << "|";
-    cout << "\n ------------------------------------------------------------------------------------\n";
+    cout << "\n ------------------------------------------------------------------------------------------------------------------------------\n";
+    cout << "|" << setw(17) << "Full Name" << setw(9) << "|" << setw(23) << "Adress" << setw(13) << "|" << setw(6) << "Number" << setw(9) << "|" << setw(12) << "Diagnosis" << setw(4) << "|" << setw(18) << "Department" << setw(4) << "|" << setw(6) << "In hospital"  << "|";
+    cout << "\n ------------------------------------------------------------------------------------------------------------------------------\n";
 }
-
-
-
 
 
 
@@ -175,7 +241,8 @@ void Main::table_header()
 
 void Main::CreateList(short int count, Patient** head, Patient* tail)
 {
-    string FullName, buffer, address; string grade;
+    string FullName, buffer, address, subject; short int grade;
+    
     if (count > 0) {
         (*head) = new Patient;
         FullName = dataNames[rand() % 32];
@@ -183,9 +250,13 @@ void Main::CreateList(short int count, Patient** head, Patient* tail)
         FullName += " ";
         buffer = dataSecondNames[rand() % 32];
         FullName += buffer;
-        address = dataadress[rand()%17];
-        grade = datadiagnosis[rand() % 7];
-        (*head)->setterAll(FullName, address, grade);
+        address = dataadress[rand() % 17];
+        if (rand() % 2)
+            grade = rand() % 1000 + 1000000;
+        else
+            grade = -1;
+        subject = dataSubjects[rand() % 7];
+        (*head)->setterAll(FullName, address, grade, subject);
         (*head)->prev = tail;
         (*head)->next = NULL;
         CreateList(count - 1, &((*head)->next), (*head));
@@ -230,15 +301,19 @@ void Main::Insert(Patient** head, Patient** tail, int pos) {
             temp->prev = current;
         }
     }
-    string FullName, buffer, address; string grade;
+    string FullName, buffer, address, subject; short int grade;
     FullName = dataNames[rand() % 32];
     address += FullName;
     FullName += " ";
     buffer = dataSecondNames[rand() % 32];
     FullName += buffer;
-    address = dataadress[rand()%17];
-    grade = datadiagnosis[rand() % 7];
-    temp->setterAll(FullName, address, grade);
+    address = dataadress[rand() % 17];
+    if (rand() % 2)
+        grade = rand() % 1000 + 1000000;
+    else
+        grade = -1;
+    subject = dataSubjects[rand() % 11];
+    temp->setterAll(FullName, address, grade, subject);
 
 }
 
@@ -269,7 +344,7 @@ void Main::DeleteInList(Patient** head, Patient** tail, int pos) {
 }
 
 
-bool Main::DcheckNULL(Patient* head) { // cheking on empty
+bool Main::DcheckNULL(Patient* head) {
     if (head == NULL) {
         cout << "List is empty." << endl;
         return 0;
@@ -278,7 +353,7 @@ bool Main::DcheckNULL(Patient* head) { // cheking on empty
 }
 
 
-void Main::FreeList(Patient** head) { // clean list
+void Main::FreeList(Patient** head) {
     Patient* current = *head;
     while (current) {
         *head = (*head)->next;
@@ -287,33 +362,4 @@ void Main::FreeList(Patient** head) { // clean list
     }
 }
 
-void Main::byDiagnosis(Patient** head, string check)
-{
-    int count = 0;
-    Patient* current = *head;
-    Patient* byDiagnosis = new Patient[MAXSIZE];
-    
-    if (DcheckNULL((*head)) == 0) { return; }
-    else {
-        while (current) {
-            if (current->getterDiagnosis()==check) {
-                byDiagnosis[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterDiagnosis());
-                count++;
-            }
-            current = current->next;
-        }
-    }
 
-    if (count != 0) {
-        
-        table_header();
-        for (size_t i = 0; i < count; i++) {
-            byDiagnosis[i].show();
-        }
-    }
-    else
-        cout << "\t Таких паціентів не знайдено!\n";
-
-
-    delete[] byDiagnosis; byDiagnosis = NULL;
-}
