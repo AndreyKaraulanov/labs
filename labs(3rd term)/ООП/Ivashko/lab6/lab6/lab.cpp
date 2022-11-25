@@ -38,6 +38,7 @@ void Main::main()
                     "Шукати паціентів за діагнозом - 2\n" <<
                     "Видалити один елемент- 3\n" <<
                     "Додати елемент - 4\n" <<
+                    "Вивести кількість паціентів, якіс тоять на обліку - 5\n" <<
                     "Back - 0\n" <<
                     "-->";
                 cin >> button;
@@ -97,6 +98,9 @@ void Main::main()
                     }
                     Insert(&head, &tail, checker);
                     break;
+                case 5:
+                        bycount(&head);
+                        break;
                 case 0:
                     system("cls");
                     break;
@@ -363,3 +367,27 @@ void Main::FreeList(Patient** head) {
 }
 
 
+void Main::bycount(Patient** head){
+    int count = 0;
+    Patient* current = *head;
+    Patient* byCount = new Patient[MAXSIZE];
+    if (DcheckNULL((*head)) == 0) { return; }
+    else {
+        while (current) {
+            if (current->getterNum() != -1) {
+                byCount[count].setterAll(current->getterFullname(), current->getterAddress(), current->getterNum(), current->getterDiagnosis());
+                count++;
+            }
+            current = current->next;
+        }
+    }
+    if (count != 0) {
+        cout << "Наразі в лікарні на обліку стоїть " << count <<  " паціентів!" << endl;
+        
+    }
+    else
+        cout << "\t Лікарня тільки відчинилась, тому наразі паціентів не має!\n";
+
+    delete[] byCount; byCount = NULL;
+    //cout << "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << endl;
+}

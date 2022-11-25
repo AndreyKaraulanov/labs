@@ -74,7 +74,7 @@ public:
     void FreeList(Patient** head);
     void table_header();
     
-    
+    void bycount(Patient** head);
     void byNum(Patient** head, short int check1, short int check2);
     void byDiagnosis(Patient** head, string check);
     
